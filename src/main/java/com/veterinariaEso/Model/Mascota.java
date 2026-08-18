@@ -1,5 +1,6 @@
 package com.veterinariaEso.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -29,5 +30,6 @@ public class Mascota {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "duenio_id",nullable = false)
+    @JsonBackReference
     private Duenio duenio;
 }

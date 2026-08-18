@@ -1,5 +1,6 @@
 package com.veterinariaEso.Model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -13,7 +14,7 @@ public class Duenio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private Long id;
 
     @Column(nullable = false)
     private String nombre;
@@ -31,5 +32,6 @@ public class Duenio {
     private String email;
 
     @OneToMany(mappedBy = "duenio", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Mascota> mascotas;
 }
