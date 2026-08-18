@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class VeterinariaEsoApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Hola Mundo");
 		SpringApplication.run(VeterinariaEsoApplication.class, args);
 	}
 
