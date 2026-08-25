@@ -2,7 +2,9 @@ package com.veterinariaEso.Controller;
 
 import com.veterinariaEso.Exception.ResourceNotFoundException;
 import com.veterinariaEso.Model.Duenio;
+import com.veterinariaEso.Repository.DuenioRepository;
 import com.veterinariaEso.Service.DuenioService;
+import com.veterinariaEso.Service.MascotaService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,7 @@ public class DuenioController {
 
     @Autowired
     private final DuenioService duenioService;
+    private final MascotaService mascotaService;
 
     @GetMapping
     public ResponseEntity<List<Duenio>> getAllDuenios() {
@@ -32,12 +35,21 @@ public class DuenioController {
         }
     }
 
-    @GetMapping("/{email]")
+    @GetMapping("/email/{email}")
     public ResponseEntity<Duenio> getDuenioByEmail(@PathVariable String email) {
         try {
             return ResponseEntity.ok(duenioService.getDuenioByEmail(email));
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("{id}/mascotas")
+    public ResponseEntity<?> getMascotasByDuenio (@PathVariable Long id){
+        try {
+            return ResponseEntity.ok(mascotaService.getMascotaByDuenio(id));
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
