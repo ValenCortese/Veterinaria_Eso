@@ -35,7 +35,7 @@ public class Turno {
     private String observaciones;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mascoota_id", nullable = false)
+    @JoinColumn(name = "mascota_id", nullable = false)
     private Mascota mascota;
 
     @ManyToOne(fetch = FetchType.LAZY)

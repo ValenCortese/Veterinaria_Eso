@@ -8,7 +8,9 @@ import java.util.Optional;
 @Repository
 public interface DuenioRepository extends JpaRepository<Duenio, Long> {
 
+    Optional<Duenio> findByNombre(String nombre);
     Optional<Duenio> findByEmail(String email);
+    Optional<Duenio> findByNombreAndApellido(String nombre, String apellido);
     boolean existsByCedula(String cedula);
 }
 
