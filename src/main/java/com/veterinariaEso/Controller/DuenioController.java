@@ -1,8 +1,7 @@
 package com.veterinariaEso.Controller;
 
+import com.veterinariaEso.DTO.DuenioDTO;
 import com.veterinariaEso.Exception.ResourceNotFoundException;
-import com.veterinariaEso.Model.Duenio;
-import com.veterinariaEso.Repository.DuenioRepository;
 import com.veterinariaEso.Service.DuenioService;
 import com.veterinariaEso.Service.MascotaService;
 import lombok.AllArgsConstructor;
@@ -16,18 +15,19 @@ import java.util.List;
 @RequestMapping("/api/duenios")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class DuenioController {
-
+    // debemos devolver dto no duenio a partir de ahora
     @Autowired
     private final DuenioService duenioService;
+    @Autowired
     private final MascotaService mascotaService;
 
     @GetMapping
-    public ResponseEntity<List<Duenio>> getAllDuenios() {
+    public ResponseEntity<List<DuenioDTO>> getAllDuenios() {
         return ResponseEntity.ok(duenioService.getAllDuenios());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Duenio> getDuenioById(@PathVariable Long id) {
+    public ResponseEntity<?> getDuenioById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(duenioService.getDuenioById(id));
         } catch (ResourceNotFoundException e) {
@@ -36,7 +36,7 @@ public class DuenioController {
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<Duenio> getDuenioByEmail(@PathVariable String email) {
+    public ResponseEntity<DuenioDTO> getDuenioByEmail(@PathVariable String email) {
         try {
             return ResponseEntity.ok(duenioService.getDuenioByEmail(email));
         } catch (ResourceNotFoundException e) {
@@ -45,7 +45,7 @@ public class DuenioController {
     }
 
     @GetMapping("{id}/mascotas")
-    public ResponseEntity<?> getMascotasByDuenio (@PathVariable Long id){
+    public ResponseEntity<?> getMascotasByDuenio(@PathVariable Long id){
         try {
             return ResponseEntity.ok(mascotaService.getMascotaByDuenio(id));
         } catch (ResourceNotFoundException e) {
@@ -53,20 +53,31 @@ public class DuenioController {
         }
     }
 
-    @PostMapping
-    public ResponseEntity<?> createDuenio(@RequestBody Duenio duenio) {
+    @GetMapping("{nombre}")
+    public ResponseEntity<DuenioDTO> getDuenioByNombre(@RequestParam String nombre){
         try {
-            Duenio nuevo = duenioService.createDuenio(duenio);
+            return ResponseEntity.ok(duenioService.getDuenioByNombre(nombre));
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createDuenio(@RequestBody DuenioDTO duenioDTO) {
+        try {
+            DuenioDTO nuevo = duenioService.createDuenio(duenioDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateDuenio(@PathVariable Long id, @RequestBody Duenio duenio) {
+    public ResponseEntity<?> updateDuenio(@PathVariable Long id, @RequestBody DuenioDTO duenioDTO) {
         try {
-            return ResponseEntity.ok(duenioService.updateDuenio(id, duenio));
+            return ResponseEntity.ok(duenioService.updateDuenio(id, duenioDTO));
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.notFound().build();
         }

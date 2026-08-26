@@ -1,4 +1,7 @@
 package com.veterinariaEso.Exception;
 
-public class GlobalException {
+public class GlobalException extends RuntimeException {
+    public GlobalException(String message) {
+        super(message);
+    }
 }
