@@ -30,6 +30,5 @@ public class Mascota {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "duenio_id",nullable = false)
-    @JsonBackReference
     private Duenio duenio;
 }

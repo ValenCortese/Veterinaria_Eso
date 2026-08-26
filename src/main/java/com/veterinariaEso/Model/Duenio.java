@@ -32,6 +32,5 @@ public class Duenio {
     private String email;
 
     @OneToMany(mappedBy = "duenio", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<Mascota> mascotas;
 }
