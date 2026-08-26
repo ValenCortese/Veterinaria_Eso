@@ -1,7 +1,7 @@
 package com.veterinariaEso.Controller;
 
+import com.veterinariaEso.DTO.VeterinarioDTO;
 import com.veterinariaEso.Exception.ResourceNotFoundException;
-import com.veterinariaEso.Model.Veterinario;
 import com.veterinariaEso.Service.VeterinarioService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class VeterinarioController {
     private VeterinarioService veterinarioService;
 
     @GetMapping
-    public ResponseEntity<List<Veterinario>> getAllVeterinarios() {
+    public ResponseEntity<List<VeterinarioDTO>> getAllVeterinarios() {
         return ResponseEntity.ok(veterinarioService.getAllVeterinarios());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Veterinario> getVeterinarioById(@PathVariable Long id) {
+    public ResponseEntity<?> getVeterinarioById(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(veterinarioService.getVeterinarioById(id));
         } catch (ResourceNotFoundException e) {
@@ -33,19 +33,21 @@ public class VeterinarioController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createVeterinario(@RequestBody Veterinario veterinario) {
+    public ResponseEntity<?> createVeterinario(@RequestBody VeterinarioDTO veterinarioDTO) {
         try {
-            Veterinario nuevo = veterinarioService.createVeterinario(veterinario);
+            VeterinarioDTO nuevo = veterinarioService.createVeterinario(veterinarioDTO);
             return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateVeterinario(@PathVariable Long id, @RequestBody Veterinario veterinario) {
+    public ResponseEntity<?> updateVeterinario(@PathVariable Long id, @RequestBody VeterinarioDTO veterinarioDTO) {
         try {
-            return ResponseEntity.ok(veterinarioService.updateVeterinario(id, Veterinario));
+            return ResponseEntity.ok(veterinarioService.updateVeterinario(id, veterinarioDTO));
         } catch (ResourceNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
