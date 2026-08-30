@@ -53,7 +53,7 @@ public class DuenioController {
         }
     }
 
-    @GetMapping("{nombre}")
+    @GetMapping("/nombre/{nombre}")
     public ResponseEntity<DuenioDTO> getDuenioByNombre(@RequestParam String nombre){
         try {
             return ResponseEntity.ok(duenioService.getDuenioByNombre(nombre));
