@@ -8,100 +8,607 @@
   },
   "item": [
     {
-      "name": "localhost:8080/api/duenios",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "localhost:5000/api/users",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "api",
-            "users"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "localhost:8080/api/duenios",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"nombre\": \"Valentino\",\r\n    \"apellido\": \"Cortese\",\r\n    \"cedula\": \"123456789\",\r\n    \"telefono\": 1122334455,\r\n    \"email\": \"valen@a.com\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Dueños",
+      "item": [
+        {
+          "name": "localhost:8080/api/duenios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/duenios",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "localhost:8080/api/duenios",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "duenios"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "localhost:8080/api/duenios/?",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"nombre\": \"Valen\",\r\n    \"apellido\": \"Cortese\",\r\n    \"cedula\": \"123456789\",\r\n    \"telefono\": 1122334455,\r\n    \"email\": \"valen@a.com\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+        {
+          "name": "localhost:8080/api/duenios/{id}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/duenios/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios",
+                "1"
+              ]
             }
-          }
+          },
+          "response": []
         },
-        "url": {
-          "raw": "localhost:8080/api/duenios/1",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "duenios",
-            "1"
-          ]
+        {
+          "name": "localhost:8080/api/duenios/email/{email}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/duenios/email/v@v.com",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios",
+                "email",
+                "v@v.com"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/duenios/{id}/mascotas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/duenios/1/mascotas",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios",
+                "1",
+                "mascotas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/duenios/nombre/{nombre}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/duenios/nombre/Valentino",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios",
+                "nombre",
+                "Valentino"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/duenios",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Valentino\",\r\n    \"apellido\": \"Cortese\",\r\n    \"cedula\": \"123456789\",\r\n    \"telefono\": 1122334455,\r\n    \"email\": \"valen@a.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/duenios",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/duenios/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Valen\",\r\n    \"apellido\": \"Cortese\",\r\n    \"cedula\": \"123456789\",\r\n    \"telefono\": 1122334455,\r\n    \"email\": \"valen@aa.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/duenios/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/duenios/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/duenios/2",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "duenios",
+                "2"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
     },
     {
-      "name": "localhost:8080/api/duenios/?",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "localhost:5000/api/users/1",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "api",
-            "users",
-            "1"
-          ]
+      "name": "Mascotas",
+      "item": [
+        {
+          "name": "localhost:8080/api/mascotas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/mascotas",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "mascotas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/mascotas/{id}",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"nombre\": \"Pepe\",\r\n    \"especie\": \"pajaro\",\r\n    \"raza\": \"loro\",\r\n    \"fechaNacimiento\": \"2007-12-03\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/mascotas/?=",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "mascotas",
+                ""
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/mascotas?duenioId={id}",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Sol\",\r\n  \"especie\": \"Gato\",\r\n  \"raza\": \"Siames\",\r\n  \"fechaNacimiento\": \"2022-05-10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/mascotas?duenioId=1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "mascotas"
+              ],
+              "query": [
+                {
+                  "key": "duenioId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/mascotas/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"Luna\",\r\n  \"especie\": \"Perro\",\r\n  \"raza\": \"Golden Retriever\",\r\n  \"fechaNacimiento\": \"2021-05-20\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/mascotas/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "mascotas",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/mascotas/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/mascotas/{id}",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "mascotas",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
+      ]
+    },
+    {
+      "name": "Veterinarios",
+      "item": [
+        {
+          "name": "localhost:8080/api/veterinarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/veterinarios",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "veterinarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/veterinarios/{id}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/veterinarios/{id}",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "veterinarios",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/veterinarios",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"María\",\r\n  \"apellido\": \"González\",\r\n  \"matricula\": \"MN-2045\",\r\n  \"especialidad\": \"Cardiología\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/veterinarios",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "veterinarios"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/veterinarios/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"nombre\": \"María\",\r\n  \"apellido\": \"González\",\r\n  \"matricula\": \"MN-0001\",\r\n  \"especialidad\": \"Cardiología\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/veterinarios/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "veterinarios",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/veterinarios/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/veterinarios/{id}",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "veterinarios",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Turnos",
+      "item": [
+        {
+          "name": "localhost:8080/api/turnos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/turnos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "turnos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/turnos/{id}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/turnos/1",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "turnos",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/turnos/agenda?veterinarioId={id}&fecha={yyyy-MM-dd}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/turnos/agenda?veterinarioId=1&fecha=2026-08-30",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "turnos",
+                "agenda"
+              ],
+              "query": [
+                {
+                  "key": "veterinarioId",
+                  "value": "1"
+                },
+                {
+                  "key": "fecha",
+                  "value": "2026-08-30"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/turnos",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"fecha\": \"2026-08-30\",\r\n  \"hora\": \"10:30:00\",\r\n  \"motivo\": \"Control general\",\r\n  \"mascotaId\": 1,\r\n  \"veterinarioId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/api/turnos",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "turnos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/turnos/{id}/estado?estado={PENDIENTE|EN_CURSO|FINALIZADO|CANCELADO}&observaciones={textoOpcional}",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/turnos/1/estado?estado=EN_CURSO&observaciones= Mala Digesrtion",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "turnos",
+                "1",
+                "estado"
+              ],
+              "query": [
+                {
+                  "key": "estado",
+                  "value": "EN_CURSO"
+                },
+                {
+                  "key": "observaciones",
+                  "value": " Mala Digesrtion"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/api/turnos/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/api/turnos/{id}",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "turnos",
+                "{id}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }
