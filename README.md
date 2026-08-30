@@ -94,6 +94,7 @@ También podés levantar la app desde tu IDE ejecutando la clase `VeterinariaEso
 - `GET /api/duenios/{id}` → Busca un dueño por ID
 - `GET /api/duenios/email/{email}` → Busca un dueño por email
 - `GET /api/duenios/{id}/mascotas` → Lista las mascotas de un dueño
+- `GET /api/duenios/nombre/{nombre}` → Busca un dueño por nombre
 - `POST /api/duenios` → Crea un dueño
 - `PUT /api/duenios/{id}` → Actualiza un dueño
 - `DELETE /api/duenios/{id}` → Elimina un dueño
