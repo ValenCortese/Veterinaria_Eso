@@ -1,34 +1,20 @@
 ﻿# Veterinaria Eso
 
-API REST desarrollada con Java y Spring Boot para gestionar una clínica veterinaria.
-
-## Descripción
-
-El proyecto está centrado en la administración de dueños, mascotas, veterinarios y turnos de atención. La estructura actual ya incluye la capa de dominio, repositorios, servicios, DTOs, mappers, controladores y manejo de excepciones, con un backend funcional para la gestión veterinaria.
+API REST desarrollada en Java con Spring Boot para gestionar una clínica veterinaria. El proyecto reúne la estructura base del dominio y la capa REST, se encuentra en desarrollo y operativo.
 
 ## Estado actual del proyecto
 
-El sistema ya cuenta con las siguientes funcionalidades implementadas:
+La base funcional del backend ya está definida en el código:
 
-- Backend con Spring Boot 4.1.0
-- Persistencia con Spring Data JPA y MySQL
-- Entidades JPA para:
-  - `Duenio`
-  - `Mascota`
-  - `Turno`
-  - `Veterinario`
-  - `EstadoTurno`
-- CRUD completo para dueños (`Duenio`)
-- CRUD completo para mascotas (`Mascota`)
-- CRUD completo para veterinarios (`Veterinario`)
-- CRUD de turnos con lógica de negocio
+- Java 21 + Spring Boot 4.1.0
+- Spring Data JPA y MySQL como capa de persistencia
+- Entidades JPA para `Duenio`, `Mascota`, `Turno`, `Veterinario` y `EstadoTurno`
+- CRUD para dueños, mascotas, veterinarios y turnos
 - Consulta de agenda por veterinario y fecha
-- Cambio de estado de turnos (`PATCH`)
-- DTOs y mappers para desacoplar entidades del API
-- Manejo de errores con `ResourceNotFoundException` y validaciones básicas
-- Prueba base de arranque del contexto Spring (`contextLoads`)
-
-La base del proyecto ya está funcionando y la lógica principal del negocio está implementada. 
+- Cambio de estado de turnos mediante `PATCH`
+- DTOs, mappers, repositorios, servicios y controladores organizados por capas
+- Colección Postman y diagramas en la carpeta `docs/`
+- Prueba de contexto Spring (`contextLoads`)
 
 ## Stack tecnológico
 
@@ -39,23 +25,24 @@ La base del proyecto ya está funcionando y la lógica principal del negocio est
 - Spring Data JPA
 - MySQL Connector J
 - Lombok
+- MapStruct
 - JUnit 5
 
 ## Requisitos previos
 
 - Java 21 o superior
 - Maven instalado
-- MySQL en `localhost:3306`
+- MySQL corriendo en `localhost:3306`
 - Base de datos creada con el nombre: `veterinaria_eso`
 
 ## Configuración
 
-Ajustá la conexión en `src/main/resources/application.properties`:
+La conexión a MySQL se configura en `src/main/resources/application.properties`:
 
 ```properties
 spring.application.name=veterinaria-eso
 spring.datasource.url=jdbc:mysql://localhost:3306/veterinaria_eso?useSSL=false&serverTimezone=UTC
-spring.datasource.username=tu_username
+spring.datasource.username=root
 spring.datasource.password=tu_password
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
@@ -84,7 +71,7 @@ mvnw.cmd clean package
 mvnw.cmd spring-boot:run
 ```
 
-También podés levantar la app desde tu IDE ejecutando la clase `VeterinariaEsoApplication`.
+También se puede levantar desde el IDE ejecutando `VeterinariaEsoApplication`.
 
 ## Endpoints actuales
 
@@ -93,8 +80,8 @@ También podés levantar la app desde tu IDE ejecutando la clase `VeterinariaEso
 - `GET /api/duenios` → Lista todos los dueños
 - `GET /api/duenios/{id}` → Busca un dueño por ID
 - `GET /api/duenios/email/{email}` → Busca un dueño por email
-- `GET /api/duenios/{id}/mascotas` → Lista las mascotas de un dueño
-- `GET /api/duenios/nombre/{nombre}` → Busca un dueño por nombre
+- `GET /api/duenios/{id}/mascotas` → Lista las mascotas asociadas a un dueño
+- `GET /api/duenios/nombre/{nombre}` → Búsqueda por nombre (documentada en la colección Postman)
 - `POST /api/duenios` → Crea un dueño
 - `PUT /api/duenios/{id}` → Actualiza un dueño
 - `DELETE /api/duenios/{id}` → Elimina un dueño
@@ -121,7 +108,7 @@ También podés levantar la app desde tu IDE ejecutando la clase `VeterinariaEso
 - `GET /api/turnos/{id}` → Busca un turno por ID
 - `GET /api/turnos/agenda?veterinarioId={id}&fecha={yyyy-MM-dd}` → Agenda por veterinario y fecha
 - `POST /api/turnos` → Crea un turno
-- `PATCH /api/turnos/{id}/estado?estado={PENDIENTE|EN_CURSO|FINALIZADO|CANCELADO}&observaciones={textoOpcional}` → Actualiza estado del turno
+- `PATCH /api/turnos/{id}/estado?estado={PENDIENTE|EN_CURSO|FINALIZADO|CANCELADO}&observaciones={textoOpcional}` → Actualiza el estado del turno
 - `DELETE /api/turnos/{id}` → Elimina un turno
 
 ## Ejemplos de payload
@@ -172,10 +159,21 @@ También podés levantar la app desde tu IDE ejecutando la clase `VeterinariaEso
 }
 ```
 
+## Documentación adicional
+
+La carpeta `docs/` incluye:
+
+- `veterinaria.postman_collection.json` con requests para probar la API
+- `diagrama.png` y `CapturaTablas.png` con esquema y referencias del proyecto
+
 ## Estructura principal del proyecto
 
 ```text
 Veterinaria_Eso/
+├── docs/
+│   ├── CapturaTablas.png
+│   ├── diagrama.png
+│   └── veterinaria.postman_collection.json
 ├── src/
 │   ├── main/
 │   │   ├── java/com/veterinariaEso/
@@ -192,24 +190,30 @@ Veterinaria_Eso/
 │   └── test/
 │       └── java/com/veterinariaEso/
 │           └── VeterinariaEsoApplicationTests.java
-├── docs/
-├── pom.xml
+├── .gitignore
+├── .gitattributes
 ├── mvnw
 ├── mvnw.cmd
+├── pom.xml
 ├── README.md
-├── HELP.md
-└── .gitignore
+└── .mvn/
 ```
 
 ## Modelo de dominio
 
-Las entidades principales están definidas con relaciones JPA y representan el funcionamiento básico de la clínica:
+Las entidades principales del sistema son:
 
-- `Duenio`: propietario del animal, con datos personales.
-- `Mascota`: animal asociado a un dueño.
-- `Turno`: cita programada con motivo, fecha, hora, veterinario y mascota.
-- `Veterinario`: profesional responsable de atención.
-- `EstadoTurno`: enum con los estados: `PENDIENTE`, `EN_CURSO`, `FINALIZADO`, `CANCELADO`.
+- `Duenio`: propietario del animal
+- `Mascota`: animal asociado a un dueño
+- `Turno`: cita con motivo, fecha, hora, veterinario y mascota
+- `Veterinario`: profesional que atiende la consulta
+- `EstadoTurno`: enum con los valores `PENDIENTE`, `EN_CURSO`, `FINALIZADO` y `CANCELADO`
+
+## Consideraciones
+
+- El proyecto actualmente es un backend REST en desarrollo, no incluye frontend ni autenticación de usuarios.
+- La lógica de turnos valida que un veterinario no tenga dos citas en la misma fecha y hora.
+- El flujo de negocio está diseñado para extenderse con validaciones adicionales y más módulos.
 
 ## Autor
 
