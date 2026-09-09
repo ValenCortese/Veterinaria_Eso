@@ -1,6 +1,7 @@
 package com.veterinariaEso.Service;
 
 import com.veterinariaEso.DTO.DuenioDTO;
+import com.veterinariaEso.Exception.DuplicateResourceException;
 import com.veterinariaEso.Exception.ResourceNotFoundException;
 import com.veterinariaEso.Mapper.DuenioMapper;
 import com.veterinariaEso.Model.Duenio;
@@ -42,7 +43,7 @@ public class DuenioService{
     @Transactional
     public DuenioDTO createDuenio(DuenioDTO duenioDTO) {
         if (duenioRepository.existsByCedula(duenioDTO.getCedula())) {
-            throw new RuntimeException("Ya existe un dueño con Cedula: " + duenioDTO.getCedula());
+            throw new DuplicateResourceException("Cedula ya registrada", duenioDTO.getId());
         }
         Duenio duenio = duenioMapper.toDuenio(duenioDTO);
         return duenioMapper.toDuenioDTO(duenioRepository.save(duenio));

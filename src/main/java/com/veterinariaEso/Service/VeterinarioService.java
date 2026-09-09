@@ -1,6 +1,7 @@
 package com.veterinariaEso.Service;
 
 import com.veterinariaEso.DTO.VeterinarioDTO;
+import com.veterinariaEso.Exception.DuplicateResourceException;
 import com.veterinariaEso.Exception.ResourceNotFoundException;
 import com.veterinariaEso.Mapper.VeterinarioMapper;
 import com.veterinariaEso.Model.Veterinario;
@@ -31,7 +32,7 @@ public class VeterinarioService {
     @Transactional
     public VeterinarioDTO createVeterinario(VeterinarioDTO veterinarioDTO) {
         if (veterinarioRepository.existsByMatricula(veterinarioDTO.getMatricula())) {
-            throw new RuntimeException("Matrícula ya registrada: " + veterinarioDTO.getMatricula());
+            throw new DuplicateResourceException("Matrícula ya registrada ", veterinarioDTO.getId());
         }
         Veterinario veterinario = veterinarioMapper.toVeterinario(veterinarioDTO);
         return veterinarioMapper.toVeterinarioDTO(veterinarioRepository.save(veterinario));

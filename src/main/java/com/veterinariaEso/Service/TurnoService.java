@@ -3,6 +3,7 @@ package com.veterinariaEso.Service;
 import com.veterinariaEso.DTO.TurnoRequestDTO;
 import com.veterinariaEso.DTO.TurnoResponseDTO;
 import com.veterinariaEso.Exception.ResourceNotFoundException;
+import com.veterinariaEso.Exception.TurnoSuperpuestoException;
 import com.veterinariaEso.Mapper.TurnoMapper;
 import com.veterinariaEso.Model.EstadoTurno;
 import com.veterinariaEso.Model.Mascota;
@@ -51,7 +52,7 @@ public class TurnoService {
                 .orElseThrow(() -> new ResourceNotFoundException("Vterinario", turnoRequestDTO.getVeterinarioId()));
         // ver que no tiene otro turno el veterinario en ese dia y hora
         if (turnoRepository.existsByVeterinarioIdAndFechaAndHora(turnoRequestDTO.getVeterinarioId(), turnoRequestDTO.getFecha(), turnoRequestDTO.getHora())) {
-            throw new RuntimeException("Ya existe un turno del veterinario en ese horario");
+            throw new TurnoSuperpuestoException("Ya existe un turno del veterinario en ese horario", turnoRequestDTO.getVeterinarioId());
         }
 
         Turno turno = new Turno();
