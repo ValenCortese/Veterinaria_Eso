@@ -1,4 +1,7 @@
 package com.veterinariaEso.Exception;
 
-public class TurnoSuperpuestoException {
+// RuntimeException: no obliga a declarar throws en los métodos
+public class TurnoSuperpuestoException extends RuntimeException {
+    public TurnoSuperpuestoException(String message, Long id) {
+    }
 }
