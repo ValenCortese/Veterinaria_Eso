@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -29,11 +30,7 @@ public class TurnoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTurnoById(@PathVariable Long id) {
-        try {
-            return ResponseEntity.ok(turnoService.getTurnoById(id));
-        } catch (ResourceNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(turnoService.getTurnoById(id));
     }
 
     @GetMapping("/agenda")
@@ -42,33 +39,19 @@ public class TurnoController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createTurno(@RequestBody TurnoRequestDTO turnoRequestDTO) {
-        try {
-            TurnoResponseDTO turnoResponseDTO = turnoService.createTurno(turnoRequestDTO);
-            return ResponseEntity.status(HttpStatus.CREATED).body(turnoResponseDTO);
-        } catch (ResourceNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
-        } catch (RuntimeException e) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
-        }
+    public ResponseEntity<?> createTurno(@Valid @RequestBody TurnoRequestDTO turnoRequestDTO) {
+        TurnoResponseDTO turnoResponseDTO = turnoService.createTurno(turnoRequestDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(turnoResponseDTO);
     }
 
     @PatchMapping("/{id}/estado")
     public ResponseEntity<?> updateState(@PathVariable Long id, @RequestParam EstadoTurno estado, @RequestParam(required = false) String observaciones) {
-        try {
-            return ResponseEntity.ok(turnoService.updateState(id, estado, observaciones));
-        } catch (ResourceNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return ResponseEntity.ok(turnoService.updateState(id, estado, observaciones));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTurno(@PathVariable Long id) {
-        try {
-            turnoService.deleteTurno(id);
-            return ResponseEntity.noContent().build();
-        } catch (ResourceNotFoundException e) {
-            return ResponseEntity.notFound().build();
-        }
+        turnoService.deleteTurno(id);
+        return ResponseEntity.noContent().build();
     }
 }
