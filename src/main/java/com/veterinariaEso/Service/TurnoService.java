@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -52,7 +53,14 @@ public class TurnoService {
                 .orElseThrow(() -> new ResourceNotFoundException("Vterinario", turnoRequestDTO.getVeterinarioId()));
         // ver que no tiene otro turno el veterinario en ese dia y hora
         if (turnoRepository.existsByVeterinarioIdAndFechaAndHora(turnoRequestDTO.getVeterinarioId(), turnoRequestDTO.getFecha(), turnoRequestDTO.getHora())) {
-            throw new TurnoSuperpuestoException("Ya existe un turno del veterinario en ese horario", turnoRequestDTO.getVeterinarioId());
+            Optional<Turno> turnoConflictivo = turnoRepository.findFirstByVeterinarioIdAndFechaAndHora(
+                    turnoRequestDTO.getVeterinarioId(), turnoRequestDTO.getFecha(), turnoRequestDTO.getHora());
+            if (turnoConflictivo.isPresent()) {
+                Turno turno = turnoConflictivo.get();
+                throw new TurnoSuperpuestoException(turno.getId(), turno.getFecha(), turno.getHora());
+            }
+            throw new TurnoSuperpuestoException("Ya existe un turno del veterinario en ese horario",
+                    turnoRequestDTO.getVeterinarioId());
         }
 
         Turno turno = new Turno();

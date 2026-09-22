@@ -2,6 +2,7 @@ package com.veterinariaEso.Service;
 
 import com.veterinariaEso.DTO.MascotaDTO;
 import com.veterinariaEso.Exception.ResourceNotFoundException;
+import com.veterinariaEso.Exception.LimiteMascotasException;
 import com.veterinariaEso.Mapper.MascotaMapper;
 import com.veterinariaEso.Model.Duenio;
 import com.veterinariaEso.Model.Mascota;
@@ -44,6 +45,10 @@ public class MascotaService {
     public MascotaDTO createMascota(Long duenioId, MascotaDTO mascotaDTO) {
         Duenio duenio = duenioRepository.findById(duenioId)
                 .orElseThrow(() -> new ResourceNotFoundException("Duenio", duenioId));
+        long mascotasActivas = mascotaRepository.countByDuenioId(duenioId);
+        if (mascotasActivas >= 5) {
+            throw new LimiteMascotasException(duenioId, mascotasActivas);
+        }
         Mascota mascota = mascotaMapper.toMascota(mascotaDTO);
         mascota.setDuenio(duenio);
         return mascotaMapper.toMascotaDTO(mascotaRepository.save(mascota));
