@@ -43,6 +43,22 @@ public class GlobalException extends RuntimeException {
                 .body(new ErrorResponse(LocalDateTime.now(),409,"Conflict", ex.getMessage(), request.getRequestURI()));
     }
 
+    @ExceptionHandler(StockInsuficienteException.class)
+    public ResponseEntity<ErrorResponse> handleStockInsuficienteException(
+            StockInsuficienteException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
+                .body(new ErrorResponse(LocalDateTime.now(), 422, "Unprocessable Entity",
+                        ex.getMessage(), request.getRequestURI()));
+    }
+
+    @ExceptionHandler(LimiteMascotasException.class)
+    public ResponseEntity<ErrorResponse> handleLimiteMascotasException(
+            LimiteMascotasException ex, HttpServletRequest request) {
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY)
+                .body(new ErrorResponse(LocalDateTime.now(), 422, "Unprocessable Entity",
+                        ex.getMessage(), request.getRequestURI()));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGlobalException(
             Exception ex, HttpServletRequest request) {
