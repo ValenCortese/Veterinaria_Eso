@@ -3,191 +3,406 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Veterinaria Eso | Dueños</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    <title>Veterinaria Eso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
           integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
           crossorigin="anonymous">
 </head>
 <body class="bg-light">
-    <nav class="navbar navbar-dark bg-primary shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-semibold" href="#">Veterinaria Eso</a>
-        </div>
-    </nav>
+<nav class="navbar navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <span class="navbar-brand fw-semibold">Veterinaria Eso</span>
+    </div>
+</nav>
 
-    <main class="container py-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
-            <div>
-                <h1 class="h3 mb-1">Dueños</h1>
-                <p class="text-secondary mb-0">Personas registradas en la clínica.</p>
+<main class="container py-4">
+    <div id="pageAlert" class="alert d-none" role="alert"></div>
+
+    <ul class="nav nav-tabs mb-4" id="mainTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#ownersPanel"
+                    type="button" role="tab">Dueños</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#vetsPanel"
+                    type="button" role="tab">Veterinarios</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#petsPanel"
+                    type="button" role="tab">Mascotas</button>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <section class="tab-pane fade show active" id="ownersPanel" role="tabpanel">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+                <div>
+                    <h1 class="h3 mb-1">Dueños</h1>
+                    <p class="text-secondary mb-0">Personas registradas en la clínica.</p>
+                </div>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#ownerModal" id="newOwnerButton">Nuevo dueño</button>
             </div>
-            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#ownerModal">
-                Nuevo dueño
-            </button>
-        </div>
-
-        <section class="card border-0 shadow-sm">
-            <div class="card-body p-0">
+            <div class="card border-0 shadow-sm">
                 <div class="table-responsive">
                     <table class="table table-hover align-middle mb-0">
                         <thead class="table-light">
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nombre completo</th>
-                            <th scope="col">DNI</th>
-                            <th scope="col">Teléfono</th>
-                            <th scope="col">Email</th>
+                            <th>ID</th><th>Nombre completo</th><th>DNI</th>
+                            <th>Teléfono</th><th>Email</th><th>Acciones</th>
                         </tr>
                         </thead>
-                        <tbody id="ownersTableBody">
-                        <tr>
-                            <td colspan="5" class="text-center text-secondary py-4">Cargando dueños...</td>
-                        </tr>
-                        </tbody>
+                        <tbody id="ownersTableBody"></tbody>
                     </table>
                 </div>
             </div>
         </section>
-    </main>
 
-    <div class="modal fade" id="ownerModal" tabindex="-1" aria-labelledby="ownerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title fs-5" id="ownerModalLabel">Registrar nuevo dueño</h2>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <section class="tab-pane fade" id="vetsPanel" role="tabpanel">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+                <div>
+                    <h1 class="h3 mb-1">Veterinarios</h1>
+                    <p class="text-secondary mb-0">Profesionales registrados en la clínica.</p>
                 </div>
-                <form id="ownerForm">
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label" for="ownerName">Nombre</label>
-                                <input class="form-control" id="ownerName" name="nombre" type="text" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label" for="ownerLastName">Apellido</label>
-                                <input class="form-control" id="ownerLastName" name="apellido" type="text" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="ownerDocument">DNI</label>
-                            <input class="form-control" id="ownerDocument" name="cedula" type="text"
-                                   minlength="7" maxlength="8" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="ownerPhone">Teléfono</label>
-                            <input class="form-control" id="ownerPhone" name="telefono" type="number">
-                        </div>
-                        <div class="mb-0">
-                            <label class="form-label" for="ownerEmail">Email</label>
-                            <input class="form-control" id="ownerEmail" name="email" type="email" required>
-                        </div>
-                        <div id="formError" class="alert alert-danger d-none mt-3 mb-0" role="alert"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
-                        <button class="btn btn-primary" id="submitButton" type="submit">Guardar dueño</button>
-                    </div>
-                </form>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#vetModal" id="newVetButton">Nuevo veterinario</button>
             </div>
-        </div>
+            <div class="card border-0 shadow-sm">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                        <tr>
+                            <th>ID</th><th>Nombre completo</th><th>Matrícula</th>
+                            <th>Especialidad</th><th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody id="vetsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="tab-pane fade" id="petsPanel" role="tabpanel">
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
+                <div>
+                    <h1 class="h3 mb-1">Mascotas</h1>
+                    <p class="text-secondary mb-0">Mascotas asociadas a sus dueños.</p>
+                </div>
+                <button class="btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#petModal" id="newPetButton">Nueva mascota</button>
+            </div>
+            <div class="card border-0 shadow-sm">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                        <tr>
+                            <th>ID</th><th>Nombre</th><th>Especie</th><th>Raza</th>
+                            <th>Fecha de nacimiento</th><th>Dueño</th><th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody id="petsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
     </div>
+</main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tableBody = document.getElementById('ownersTableBody');
-            const ownerForm = document.getElementById('ownerForm');
-            const formError = document.getElementById('formError');
-            const submitButton = document.getElementById('submitButton');
-            const ownerModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('ownerModal'));
+<div class="modal fade" id="ownerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+        <form id="ownerForm">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="ownerModalTitle">Nuevo dueño</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div id="ownerError" class="alert alert-danger d-none"></div>
+                <input type="hidden" id="ownerId">
+                <div class="row">
+                    <div class="col-md-6 mb-3"><label class="form-label" for="ownerName">Nombre</label>
+                        <input class="form-control" id="ownerName" required></div>
+                    <div class="col-md-6 mb-3"><label class="form-label" for="ownerLastName">Apellido</label>
+                        <input class="form-control" id="ownerLastName" required></div>
+                </div>
+                <div class="mb-3"><label class="form-label" for="ownerDocument">DNI</label>
+                    <input class="form-control" id="ownerDocument" minlength="7" maxlength="8" required></div>
+                <div class="mb-3"><label class="form-label" for="ownerPhone">Teléfono</label>
+                    <input class="form-control" id="ownerPhone" type="number"></div>
+                <div><label class="form-label" for="ownerEmail">Email</label>
+                    <input class="form-control" id="ownerEmail" type="email" required></div>
+            </div>
+            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary" id="ownerSubmit" type="submit">Guardar</button></div>
+        </form>
+    </div></div>
+</div>
 
-            function showFormError(text) {
-                formError.textContent = text;
-                formError.classList.remove('d-none');
-            }
+<div class="modal fade" id="vetModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+        <form id="vetForm">
+            <div class="modal-header"><h2 class="modal-title fs-5" id="vetModalTitle">Nuevo veterinario</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+            <div class="modal-body">
+                <div id="vetError" class="alert alert-danger d-none"></div><input type="hidden" id="vetId">
+                <div class="row">
+                    <div class="col-md-6 mb-3"><label class="form-label" for="vetName">Nombre</label>
+                        <input class="form-control" id="vetName" required></div>
+                    <div class="col-md-6 mb-3"><label class="form-label" for="vetLastName">Apellido</label>
+                        <input class="form-control" id="vetLastName" required></div>
+                </div>
+                <div class="mb-3"><label class="form-label" for="vetLicense">Matrícula (AA-1234)</label>
+                    <input class="form-control" id="vetLicense" pattern="[A-Z]{2}-[0-9]{4}" required></div>
+                <div><label class="form-label" for="vetSpecialty">Especialidad</label>
+                    <input class="form-control" id="vetSpecialty" required></div>
+            </div>
+            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary" id="vetSubmit" type="submit">Guardar</button></div>
+        </form>
+    </div></div>
+</div>
 
-            function clearFormError() {
-                formError.textContent = '';
-                formError.classList.add('d-none');
-            }
+<div class="modal fade" id="petModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog"><div class="modal-content">
+        <form id="petForm">
+            <div class="modal-header"><h2 class="modal-title fs-5" id="petModalTitle">Nueva mascota</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button></div>
+            <div class="modal-body">
+                <div id="petError" class="alert alert-danger d-none"></div><input type="hidden" id="petId">
+                <div class="mb-3"><label class="form-label" for="petName">Nombre</label>
+                    <input class="form-control" id="petName" required></div>
+                <div class="row">
+                    <div class="col-md-6 mb-3"><label class="form-label" for="petSpecies">Especie</label>
+                        <input class="form-control" id="petSpecies" required></div>
+                    <div class="col-md-6 mb-3"><label class="form-label" for="petBreed">Raza</label>
+                        <input class="form-control" id="petBreed" required></div>
+                </div>
+                <div class="mb-3"><label class="form-label" for="petBirthDate">Fecha de nacimiento</label>
+                    <input class="form-control" id="petBirthDate" type="date" required></div>
+                <div><label class="form-label" for="petOwner">Dueño</label>
+                    <select class="form-select" id="petOwner" required></select></div>
+            </div>
+            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary" id="petSubmit" type="submit">Guardar</button></div>
+        </form>
+    </div></div>
+</div>
 
-            async function getErrorMessage(response) {
-                const body = await response.text();
-                if (!body) {
-                    return `La API respondió con el código ${response.status}.`;
-                }
-                try {
-                    const data = JSON.parse(body);
-                    return data.mensaje || data.message || data.error ||
-                        `La API respondió con el código ${response.status}.`;
-                } catch {
-                    return body;
-                }
-            }
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+<script>
+    const API_BASE = "http://localhost:8080";
+    const URLS = { owners: "/api/duenios", vets: "/api/veterinarios", pets: "/api/mascotas" };
+    const pageAlert = document.getElementById("pageAlert");
+    const ownerModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("ownerModal"));
+    const vetModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("vetModal"));
+    const petModal = bootstrap.Modal.getOrCreateInstance(document.getElementById("petModal"));
+    let owners = [];
 
-            function renderOwners(owners) {
-                tableBody.replaceChildren();
-                if (!owners.length) {
-                    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-secondary py-4">No hay dueños registrados.</td></tr>';
-                    return;
-                }
-                owners.forEach(owner => {
-                    const row = document.createElement('tr');
-                    [owner.id, `${owner.nombre} ${owner.apellido}`, owner.cedula,
-                        owner.telefono || '-', owner.email].forEach(value => {
-                        const cell = document.createElement('td');
-                        cell.textContent = value;
-                        row.appendChild(cell);
-                    });
-                    tableBody.appendChild(row);
-                });
-            }
+    function showPageAlert(message, type = "danger") {
+        pageAlert.textContent = message;
+        pageAlert.className = "alert alert-" + type;
+    }
+    function hideAlert(element) {
+        element.textContent = "";
+        element.classList.add("d-none");
+    }
+    async function errorMessage(response) {
+        const text = await response.text();
+        if (!text) return "La API respondió con el código " + response.status + ".";
+        try {
+            const body = JSON.parse(text);
+            if (body.message || body.mensaje || body.error) return body.message || body.mensaje || body.error;
+            if (body.errors) return Object.values(body.errors).join(" ");
+        } catch (_) { /* La respuesta puede ser texto plano. */ }
+        return text;
+    }
+    async function request(url, options) {
+        const response = await fetch(API_BASE + url, options);
+        if (!response.ok) throw new Error(await errorMessage(response));
+        return response.status === 204 ? null : response.json();
+    }
+    function actionButtons(type, id) {
+        return `<button class="btn btn-sm btn-outline-primary me-1" data-action="edit-${type}" data-id="${id}">Editar</button>
+                <button class="btn btn-sm btn-outline-danger" data-action="delete-${type}" data-id="${id}">Eliminar</button>`;
+    }
+    function emptyRow(columns, text = "No hay registros.") {
+        return `<tr><td colspan="${columns}" class="text-center text-secondary py-4">${text}</td></tr>`;
+    }
 
-            async function loadOwners() {
-                try {
-                    const response = await fetch('/api/duenos');
-                    if (!response.ok) {
-                        throw new Error(await getErrorMessage(response));
-                    }
-                    renderOwners(await response.json());
-                } catch (error) {
-                    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-danger py-4">No se pudieron cargar los dueños.</td></tr>';
-                    showFormError(error.message || 'No se pudo conectar con la API.');
-                }
-            }
+    async function loadOwners() {
+        try {
+            owners = await request(URLS.owners);
+            const body = document.getElementById("ownersTableBody");
+            body.innerHTML = owners.length ? owners.map(o =>
+                `<tr><td>${o.id}</td><td>${escapeHtml(o.nombre)} ${escapeHtml(o.apellido)}</td>
+                <td>${escapeHtml(o.cedula)}</td><td>${o.telefono || "-"}</td><td>${escapeHtml(o.email)}</td>
+                <td class="text-nowrap">${actionButtons("owner", o.id)}</td></tr>`).join("") : emptyRow(6);
+            fillOwnerSelect();
+        } catch (error) {
+            document.getElementById("ownersTableBody").innerHTML = emptyRow(6, "No se pudieron cargar los dueños.");
+            showPageAlert(error.message);
+        }
+    }
+    function fillOwnerSelect(selectedId) {
+        const select = document.getElementById("petOwner");
+        select.innerHTML = '<option value="">Seleccione un dueño</option>' +
+            owners.map(o => `<option value="${o.id}" ${String(o.id) === String(selectedId) ? "selected" : ""}>
+                ${escapeHtml(o.nombre)} ${escapeHtml(o.apellido)}</option>`).join("");
+    }
+    async function loadVets() {
+        try {
+            const vets = await request(URLS.vets);
+            document.getElementById("vetsTableBody").innerHTML = vets.length ? vets.map(v =>
+                `<tr><td>${v.id}</td><td>${escapeHtml(v.nombre)} ${escapeHtml(v.apellido)}</td>
+                <td>${escapeHtml(v.matricula)}</td><td>${escapeHtml(v.especialidad)}</td>
+                <td class="text-nowrap">${actionButtons("vet", v.id)}</td></tr>`).join("") : emptyRow(5);
+        } catch (error) {
+            document.getElementById("vetsTableBody").innerHTML = emptyRow(5, "No se pudieron cargar los veterinarios.");
+            showPageAlert(error.message);
+        }
+    }
+    async function loadPets() {
+        try {
+            const pets = await request(URLS.pets);
+            document.getElementById("petsTableBody").innerHTML = pets.length ? pets.map(p =>
+                `<tr><td>${p.id}</td><td>${escapeHtml(p.nombre)}</td><td>${escapeHtml(p.especie)}</td>
+                <td>${escapeHtml(p.raza)}</td><td>${p.fechaNacimiento || "-"}</td>
+                <td>${escapeHtml(p.duenioNombre || ownerName(p.duenioId))}</td>
+                <td class="text-nowrap">${actionButtons("pet", p.id)}</td></tr>`).join("") : emptyRow(7);
+        } catch (error) {
+            document.getElementById("petsTableBody").innerHTML = emptyRow(7, "No se pudieron cargar las mascotas.");
+            showPageAlert(error.message);
+        }
+    }
+    function ownerName(id) {
+        const owner = owners.find(o => String(o.id) === String(id));
+        return owner ? owner.nombre + " " + owner.apellido : "-";
+    }
+    function escapeHtml(value) {
+        return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function setFormError(id, message) {
+        const element = document.getElementById(id);
+        element.textContent = message;
+        element.classList.remove("d-none");
+    }
 
-            ownerForm.addEventListener('submit', async event => {
-                event.preventDefault();
-                clearFormError();
-                submitButton.disabled = true;
-                const formData = new FormData(ownerForm);
-                const owner = Object.fromEntries(formData.entries());
-                owner.telefono = owner.telefono ? Number(owner.telefono) : null;
-
-                try {
-                    const response = await fetch('/api/duenos', {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify(owner)
-                    });
-                    if (!response.ok) {
-                        throw new Error(await getErrorMessage(response));
-                    }
-                    ownerForm.reset();
-                    ownerModal.hide();
-                    await loadOwners();
-                } catch (error) {
-                    showFormError(error.message || 'No se pudo registrar el dueño.');
-                } finally {
-                    submitButton.disabled = false;
-                }
+    document.getElementById("newOwnerButton").addEventListener("click", () => {
+        document.getElementById("ownerForm").reset();
+        document.getElementById("ownerId").value = "";
+        document.getElementById("ownerModalTitle").textContent = "Nuevo dueño";
+        hideAlert(document.getElementById("ownerError"));
+    });
+    document.getElementById("ownerForm").addEventListener("submit", async event => {
+        event.preventDefault();
+        const id = document.getElementById("ownerId").value;
+        const owner = {
+            nombre: document.getElementById("ownerName").value.trim(),
+            apellido: document.getElementById("ownerLastName").value.trim(),
+            cedula: document.getElementById("ownerDocument").value.trim(),
+            telefono: document.getElementById("ownerPhone").value ?
+                Number(document.getElementById("ownerPhone").value) : null,
+            email: document.getElementById("ownerEmail").value.trim()
+        };
+        try {
+            await request(id ? URLS.owners + "/" + id : URLS.owners, {
+                method: id ? "PUT" : "POST", headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(owner)
             });
+            ownerModal.hide(); showPageAlert("Dueño guardado correctamente.", "success"); await loadOwners();
+        } catch (error) { setFormError("ownerError", error.message); }
+    });
 
-            loadOwners();
-        });
-    </script>
+    document.getElementById("newVetButton").addEventListener("click", () => {
+        document.getElementById("vetForm").reset(); document.getElementById("vetId").value = "";
+        document.getElementById("vetModalTitle").textContent = "Nuevo veterinario";
+        hideAlert(document.getElementById("vetError"));
+    });
+    document.getElementById("vetForm").addEventListener("submit", async event => {
+        event.preventDefault();
+        const id = document.getElementById("vetId").value;
+        const vet = { id: id ? Number(id) : null, nombre: document.getElementById("vetName").value.trim(),
+            apellido: document.getElementById("vetLastName").value.trim(),
+            matricula: document.getElementById("vetLicense").value.trim().toUpperCase(),
+            especialidad: document.getElementById("vetSpecialty").value.trim() };
+        try {
+            await request(id ? URLS.vets + "/" + id : URLS.vets, {
+                method: id ? "PUT" : "POST", headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(vet)
+            });
+            vetModal.hide(); showPageAlert("Veterinario guardado correctamente.", "success"); await loadVets();
+        } catch (error) { setFormError("vetError", error.message); }
+    });
+
+    document.getElementById("newPetButton").addEventListener("click", () => {
+        document.getElementById("petForm").reset(); document.getElementById("petId").value = "";
+        document.getElementById("petModalTitle").textContent = "Nueva mascota";
+        fillOwnerSelect(); hideAlert(document.getElementById("petError"));
+    });
+    document.getElementById("petForm").addEventListener("submit", async event => {
+        event.preventDefault();
+        const id = document.getElementById("petId").value;
+        const ownerId = Number(document.getElementById("petOwner").value);
+        const pet = { id: id ? Number(id) : null, nombre: document.getElementById("petName").value.trim(),
+            especie: document.getElementById("petSpecies").value.trim(),
+            raza: document.getElementById("petBreed").value.trim(),
+            fechaNacimiento: document.getElementById("petBirthDate").value,
+            duenioId: ownerId, duenioNombre: ownerName(ownerId) };
+        try {
+            const url = id ? URLS.pets + "/" + id : URLS.pets + "?duenioId=" + ownerId;
+            await request(url, {method: id ? "PUT" : "POST", headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(pet)});
+            petModal.hide(); showPageAlert("Mascota guardada correctamente.", "success"); await loadPets();
+        } catch (error) { setFormError("petError", error.message); }
+    });
+
+    document.addEventListener("click", async event => {
+        const button = event.target.closest("[data-action]");
+        if (!button) return;
+        const type = button.dataset.action.split("-")[1];
+        const id = button.dataset.id;
+        if (button.dataset.action.startsWith("delete-")) {
+            if (!confirm("¿Seguro que desea eliminar este registro?")) return;
+            const url = type === "owner" ? URLS.owners : type === "vet" ? URLS.vets : URLS.pets;
+            try {
+                await request(url + "/" + id, {method: "DELETE"});
+                showPageAlert("Registro eliminado correctamente.", "success");
+                if (type === "owner") await loadOwners();
+                if (type === "vet") await loadVets();
+                if (type === "pet") await loadPets();
+            } catch (error) { showPageAlert(error.message); }
+            return;
+        }
+        try {
+            const url = type === "owner" ? URLS.owners : type === "vet" ? URLS.vets : URLS.pets;
+            const data = await request(url + "/" + id);
+            if (type === "owner") {
+                document.getElementById("ownerId").value = data.id; document.getElementById("ownerName").value = data.nombre;
+                document.getElementById("ownerLastName").value = data.apellido; document.getElementById("ownerDocument").value = data.cedula;
+                document.getElementById("ownerPhone").value = data.telefono || ""; document.getElementById("ownerEmail").value = data.email;
+                document.getElementById("ownerModalTitle").textContent = "Editar dueño"; hideAlert(document.getElementById("ownerError")); ownerModal.show();
+            } else if (type === "vet") {
+                document.getElementById("vetId").value = data.id; document.getElementById("vetName").value = data.nombre;
+                document.getElementById("vetLastName").value = data.apellido; document.getElementById("vetLicense").value = data.matricula;
+                document.getElementById("vetSpecialty").value = data.especialidad; document.getElementById("vetModalTitle").textContent = "Editar veterinario";
+                hideAlert(document.getElementById("vetError")); vetModal.show();
+            } else {
+                document.getElementById("petId").value = data.id; document.getElementById("petName").value = data.nombre;
+                document.getElementById("petSpecies").value = data.especie; document.getElementById("petBreed").value = data.raza;
+                document.getElementById("petBirthDate").value = data.fechaNacimiento; fillOwnerSelect(data.duenioId);
+                document.getElementById("petModalTitle").textContent = "Editar mascota"; hideAlert(document.getElementById("petError")); petModal.show();
+            }
+        } catch (error) { showPageAlert(error.message); }
+    });
+
+    document.getElementById("mainTabs").addEventListener("shown.bs.tab", event => {
+        if (event.target.dataset.bsTarget === "#vetsPanel") loadVets();
+        if (event.target.dataset.bsTarget === "#petsPanel") loadPets();
+    });
+    loadOwners();
+</script>
 </body>
 </html>
