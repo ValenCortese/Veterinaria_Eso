@@ -8,6 +8,7 @@ import com.veterinariaEso.Model.Duenio;
 import com.veterinariaEso.Repository.DuenioRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,13 +17,16 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DuenioService{
 
+    @Autowired
     private final DuenioRepository duenioRepository;
+    @Autowired
     private final DuenioMapper duenioMapper;
 
     public List<DuenioDTO> getAllDuenios() {
         return duenioRepository.findAll().stream().map(duenioMapper::toDuenioDTO).collect(Collectors.toList());
     }
 
+    @Transactional
     public DuenioDTO getDuenioById(Long id) {
         Duenio duenio = duenioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Duenio", id));
         return duenioMapper.toDuenioDTO(duenio);
