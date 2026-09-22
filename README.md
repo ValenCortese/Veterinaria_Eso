@@ -134,7 +134,7 @@ ejemplos de campos mediante `@Schema`.
 
 ### Dueños
 
-Las rutas `/api/duenios` y `/api/duenos` son alias equivalentes.
+La API de dueños está disponible únicamente mediante la ruta `/api/duenios`.
 
 - `GET /api/duenios` - Lista todos los dueños.
 - `GET /api/duenios/{id}` - Busca un dueño por ID.
@@ -171,6 +171,19 @@ Las rutas `/api/duenios` y `/api/duenos` son alias equivalentes.
 - `PATCH /api/turnos/{id}/estado?estado={estado}&observaciones={texto}` -
   Actualiza el estado de un turno.
 - `DELETE /api/turnos/{id}` - Elimina un turno.
+
+### Medicamentos
+
+- `GET /api/medicamentos` - Lista todos los medicamentos.
+- `GET /api/medicamentos/{id}` - Busca un medicamento por ID.
+- `POST /api/medicamentos` - Crea un medicamento.
+- `PUT /api/medicamentos/{id}` - Actualiza un medicamento.
+- `DELETE /api/medicamentos/{id}` - Elimina un medicamento.
+- `GET /api/turnos/{id}/medicamentos` - Lista los medicamentos recetados en
+  un turno.
+- `POST /api/turnos/{turnoId}/medicamentos/{medicamentoId}` - Asocia un
+  medicamento al turno y descuenta una unidad del stock. Devuelve `422` si
+  no hay stock disponible.
 
 ## Ejemplos de payload
 
@@ -221,6 +234,17 @@ Las rutas `/api/duenios` y `/api/duenos` son alias equivalentes.
 }
 ```
 
+### Crear medicamento
+
+```json
+{
+  "nombre": "Amoxicilina",
+  "principioActivo": "Amoxicilina trihidrato",
+  "stock": 25,
+  "precioUnitario": 1250.50
+}
+```
+
 ## Estructura principal
 
 ```text
@@ -259,11 +283,10 @@ Veterinaria_Eso/
 - `Duenio`: propietario del animal.
 - `Mascota`: animal asociado a un dueño.
 - `Turno`: cita con fecha, hora, motivo, estado, mascota y veterinario.
+- `Medicamento`: medicamento disponible para receta, con nombre, principio
+  activo, stock y precio unitario.
 - `Veterinario`: profesional que atiende la consulta.
 - `EstadoTurno`: `PENDIENTE`, `EN_CURSO`, `FINALIZADO` o `CANCELADO`.
-
-La lógica de turnos impide que un veterinario tenga dos citas en la misma
-fecha y hora.
 
 ## Arquitectura
 
@@ -275,3 +298,63 @@ persistencia principal. El análisis de sus ventajas y limitaciones está en
 ## Autor
 
 - Cortese Valentino
+
+## Parcial 1 — Decisiones de diseño
+
+### Relación Turno–Medicamento: explicá el tipo de relación elegida y por qué.
+
+La relación entre `Turno` y `Medicamento` se modeló con `ManyToMany`. Un turno 
+puede tener más de un medicamento recetado. Al mismo tiempo, un mismo medicamento 
+pertenece al catálogo y puede aparecer en muchos turnos diferentes. JPA persiste esta 
+relación con una tabla intermedia `turnos_medicamentos`, evitando duplicar los datos 
+descriptivos del medicamento. Esta desición me parece la correcta mientras la receta no 
+necesite atributos propios como dosis, frecuencia o durante cuanto timepo se debe
+tomar el medicamento.
+
+### Validación de stock: explicá cómo y en qué capa implementaste el control.
+
+La validación de stock se implementó en `MedicamentoService`, dentro del método
+que relaciona un medicamento con un turno. Primero se buscan el turno y el
+medicamento por sus IDs correspondientes, y se da el codigo de estado de 
+respuesta HTTP `404` si alguno no existe. Luego se verifica que el stock sea 
+mayor que cero antes de modificar la relación. Cuando no hay unidades 
+disponibles, se ejecuta la excepción `StockInsuficienteException`, que 
+`GlobalException` transforma en un `ErrorResponse` con codigo de estado de 
+respuesta HTTP `422`. Si las validaciones son exitosas, el servicio agrega 
+la asociación y descuenta una unidad dentro de una transacción.
+
+### Solapamiento: describí el algoritmo de detección (¿qué consulta hacés? ¿qué parámetros comparás?).
+
+El algoritmo de detección se ejecuta en `TurnoService` antes de guardar un 
+turno nuevo. El repositorio de turno consulta si existe un turno usando el 
+ID del veterinario, la fecha y la hora seleccionadas. Los tres valores 
+deben coincidir para considerar que dos turnos ocupan el mismo espacio en 
+la agenda. Si la consulta encuentra una coincidencia, se recupera el 
+primer turno conflictivo con esos mismos valores. La excepción lanzada 
+incluye el ID, la fecha y la hora existentes, y el handler global responde 
+con el codigo HTTP `409 Conflict`.
+
+### Cupo de mascotas: describí la consulta y el criterio de "mascotas activas".
+
+Cuando se crea una mascota, `MascotaService` busca primero al dueño para confirmar
+que exista. Después ejecuta `countByDuenioId`, que cuenta los registros
+asociados a ese dueño en la tabla `mascotas`. La creación se rechaza cuando 
+la cuenta de mascotas de un dueño es mayor o igual a cinco, porque la nueva mascota 
+ocuparía una posición adicional. En el modelo actual no existe un campo de baja de 
+mascotas ni un estado para una mascota. Por ese motivo, se consideran activas todas 
+las mascotas que se encuentran en la base de datos y solo dejan de contarse cuando 
+se eliminan directamente, devolviendo un codigo HTTP `422` cuando se alcanza el 
+límite.
+
+### Decisión más difícil: contá cuál fue el punto más complejo y cómo lo resolviste.
+
+El punto más complejo fue mantener las reglas de negocio en los servicios sin
+exponer entidades JPA desde los endpoints. La asociación de medicamentos
+requería actualizar al mismo tiempo una colección y el stock disponible, por
+lo que se resolvió con una operación transaccional en `MedicamentoService`.
+También era necesario diferenciar los errores de recursos inexistentes, faltas de
+stock, solapamiento y exceso de mascotas mediante excepciones específicas.
+`GlobalException` centraliza la conversión de esas excepciones a respuestas
+HTTP consistentes, incluyendo el mensaje útil para cuando se consume la API.
+De esta forma, los controladores quedan enfocados en HTTP y la lógica puede
+ser reutilizada y probada en la capa de servicio.
