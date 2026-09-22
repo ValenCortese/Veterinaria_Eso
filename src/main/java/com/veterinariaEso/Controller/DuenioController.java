@@ -19,7 +19,7 @@ import java.util.List;
 
 @Tag(name="Duenios", description = "CRUD - Veterinaria Eso")
 @RestController
-@RequestMapping({"/api/duenios", "/api/duenos"})
+@RequestMapping("/api/duenios")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class DuenioController {
 

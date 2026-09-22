@@ -4,6 +4,8 @@ import com.veterinariaEso.DTO.TurnoRequestDTO;
 import com.veterinariaEso.DTO.TurnoResponseDTO;
 import com.veterinariaEso.Exception.ResourceNotFoundException;
 import com.veterinariaEso.Model.EstadoTurno;
+import com.veterinariaEso.DTO.MedicamentoResponseDTO;
+import com.veterinariaEso.Service.MedicamentoService;
 import com.veterinariaEso.Service.TurnoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -28,6 +30,8 @@ public class TurnoController {
 
     @Autowired
     private final TurnoService turnoService;
+    @Autowired
+    private final MedicamentoService medicamentoService;
 
     @Operation(summary = "Lista todos los turnos",
             description = "Devuelve una lista conteniendo todos los turnos y su información."
@@ -54,6 +58,38 @@ public class TurnoController {
             @Parameter(description = "ID del turno", example = "1")
             @PathVariable Long id) {
         return ResponseEntity.ok(turnoService.getTurnoById(id));
+    }
+
+    @Operation(summary = "Lista los medicamentos recetados en un turno",
+            description = "Devuelve los medicamentos asociados al turno indicado.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Medicamentos del turno obtenidos correctamente"),
+            @ApiResponse(responseCode = "404", description = "No se encontró el turno indicado"),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+    })
+    @GetMapping("/{id}/medicamentos")
+    public ResponseEntity<List<MedicamentoResponseDTO>> getMedicamentosByTurno(
+            @Parameter(description = "ID del turno", example = "1")
+            @PathVariable Long id) {
+        return ResponseEntity.ok(medicamentoService.getMedicamentosByTurno(id));
+    }
+
+    @Operation(summary = "Asocia un medicamento a un turno",
+            description = "Asocia el medicamento indicado al turno y descuenta una unidad del stock. "
+                    + "No permite la asociación cuando el stock es cero.")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Medicamento asociado correctamente y stock disminuido"),
+            @ApiResponse(responseCode = "404", description = "No se encontró el turno o medicamento indicado"),
+            @ApiResponse(responseCode = "422", description = "El medicamento no tiene stock disponible"),
+            @ApiResponse(responseCode = "500", description = "Error interno del servidor")
+    })
+    @PostMapping("/{turnoId}/medicamentos/{medicamentoId}")
+    public ResponseEntity<MedicamentoResponseDTO> associateMedicamento(
+            @Parameter(description = "ID del turno", example = "1")
+            @PathVariable Long turnoId,
+            @Parameter(description = "ID del medicamento", example = "1")
+            @PathVariable Long medicamentoId) {
+        return ResponseEntity.ok(medicamentoService.associateToTurno(turnoId, medicamentoId));
     }
 
     @Operation(summary = "Lista los turnos de un veterinario en una fecha",
