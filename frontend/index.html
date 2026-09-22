@@ -1,10 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Veterinaria Eso | Dueños</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
 </head>
-<body>
-$END$
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="#">Veterinaria Eso</a>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div>
+                <h1 class="h3 mb-1">Dueños</h1>
+                <p class="text-secondary mb-0">Personas registradas en la clínica.</p>
+            </div>
+            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#ownerModal">
+                Nuevo dueño
+            </button>
+        </div>
+
+        <section class="card border-0 shadow-sm">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre completo</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Email</th>
+                        </tr>
+                        </thead>
+                        <tbody id="ownersTableBody">
+                        <tr>
+                            <td colspan="5" class="text-center text-secondary py-4">Cargando dueños...</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade" id="ownerModal" tabindex="-1" aria-labelledby="ownerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="ownerModalLabel">Registrar nuevo dueño</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <form id="ownerForm">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label" for="ownerName">Nombre</label>
+                                <input class="form-control" id="ownerName" name="nombre" type="text" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label" for="ownerLastName">Apellido</label>
+                                <input class="form-control" id="ownerLastName" name="apellido" type="text" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="ownerDocument">DNI</label>
+                            <input class="form-control" id="ownerDocument" name="cedula" type="text"
+                                   minlength="7" maxlength="8" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="ownerPhone">Teléfono</label>
+                            <input class="form-control" id="ownerPhone" name="telefono" type="number">
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label" for="ownerEmail">Email</label>
+                            <input class="form-control" id="ownerEmail" name="email" type="email" required>
+                        </div>
+                        <div id="formError" class="alert alert-danger d-none mt-3 mb-0" role="alert"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-primary" id="submitButton" type="submit">Guardar dueño</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.getElementById('ownersTableBody');
+            const ownerForm = document.getElementById('ownerForm');
+            const formError = document.getElementById('formError');
+            const submitButton = document.getElementById('submitButton');
+            const ownerModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('ownerModal'));
+
+            function showFormError(text) {
+                formError.textContent = text;
+                formError.classList.remove('d-none');
+            }
+
+            function clearFormError() {
+                formError.textContent = '';
+                formError.classList.add('d-none');
+            }
+
+            async function getErrorMessage(response) {
+                const body = await response.text();
+                if (!body) {
+                    return `La API respondió con el código ${response.status}.`;
+                }
+                try {
+                    const data = JSON.parse(body);
+                    return data.mensaje || data.message || data.error ||
+                        `La API respondió con el código ${response.status}.`;
+                } catch {
+                    return body;
+                }
+            }
+
+            function renderOwners(owners) {
+                tableBody.replaceChildren();
+                if (!owners.length) {
+                    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-secondary py-4">No hay dueños registrados.</td></tr>';
+                    return;
+                }
+                owners.forEach(owner => {
+                    const row = document.createElement('tr');
+                    [owner.id, `${owner.nombre} ${owner.apellido}`, owner.cedula,
+                        owner.telefono || '-', owner.email].forEach(value => {
+                        const cell = document.createElement('td');
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+                    tableBody.appendChild(row);
+                });
+            }
+
+            async function loadOwners() {
+                try {
+                    const response = await fetch('/api/duenos');
+                    if (!response.ok) {
+                        throw new Error(await getErrorMessage(response));
+                    }
+                    renderOwners(await response.json());
+                } catch (error) {
+                    tableBody.innerHTML = '<tr><td colspan="5" class="text-center text-danger py-4">No se pudieron cargar los dueños.</td></tr>';
+                    showFormError(error.message || 'No se pudo conectar con la API.');
+                }
+            }
+
+            ownerForm.addEventListener('submit', async event => {
+                event.preventDefault();
+                clearFormError();
+                submitButton.disabled = true;
+                const formData = new FormData(ownerForm);
+                const owner = Object.fromEntries(formData.entries());
+                owner.telefono = owner.telefono ? Number(owner.telefono) : null;
+
+                try {
+                    const response = await fetch('/api/duenos', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(owner)
+                    });
+                    if (!response.ok) {
+                        throw new Error(await getErrorMessage(response));
+                    }
+                    ownerForm.reset();
+                    ownerModal.hide();
+                    await loadOwners();
+                } catch (error) {
+                    showFormError(error.message || 'No se pudo registrar el dueño.');
+                } finally {
+                    submitButton.disabled = false;
+                }
+            });
+
+            loadOwners();
+        });
+    </script>
 </body>
 </html>
