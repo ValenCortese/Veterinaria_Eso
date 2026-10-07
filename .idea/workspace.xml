@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="6" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0016885492798981" />
+      <entry key="MS500" value="1.2789348305812411" />
+      <entry key="S2" value="1.7267343483876494" />
+      <entry key="S5" value="1.8803740174763983" />
+      <entry key="S10" value="1.9599105567465458" />
+      <entry key="S30" value="2.4710036654057914" />
+      <entry key="S60" value="3.717655034233689" />
+      <entry key="M2" value="7.049885018355478" />
+      <entry key="M5" value="14.27936134398936" />
+      <entry key="M10" value="19.347640580622482" />
+      <entry key="M15" value="21.820283563889138" />
+      <entry key="M30" value="28.76342877344549" />
+      <entry key="H1" value="57.123673766966654" />
+      <entry key="H2" value="120.5948696333654" />
+      <entry key="H4" value="194.28399501710348" />
+      <entry key="D1" value="301.17132235273544" />
+      <entry key="W1" value="325.69584548523994" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="7.467198523200196E-159" />
+      <entry key="S2" value="2.9396080256668687E-40" />
+      <entry key="S5" value="1.5392734188424674E-16" />
+      <entry key="S10" value="1.240675066191239E-8" />
+      <entry key="S30" value="0.002350081057819196" />
+      <entry key="S60" value="0.05836779728388406" />
+      <entry key="M2" value="0.39471648399945625" />
+      <entry key="M5" value="1.508593762524481" />
+      <entry key="M10" value="2.454621874118066" />
+      <entry key="M15" value="2.992771251069063" />
+      <entry key="M30" value="4.478445021136163" />
+      <entry key="H1" value="8.545877012267875" />
+      <entry key="H2" value="17.322035305117225" />
+      <entry key="H4" value="28.242598647957344" />
+      <entry key="D1" value="45.230029393902896" />
+      <entry key="W1" value="49.28332698230349" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.0023241056616525486" />
+      <entry key="MS500" value="0.36512861449329326" />
+      <entry key="S2" value="1.2487422388691243" />
+      <entry key="S5" value="1.6500866037614281" />
+      <entry key="S10" value="1.837011972667943" />
+      <entry key="S30" value="2.429184553386882" />
+      <entry key="S60" value="3.7442479495068293" />
+      <entry key="M2" value="7.411302092930917" />
+      <entry key="M5" value="15.759198646813433" />
+      <entry key="M10" value="21.78252351884215" />
+      <entry key="M15" value="24.798156319921993" />
+      <entry key="M30" value="33.23250643585631" />
+      <entry key="H1" value="65.6621912982666" />
+      <entry key="H2" value="137.91011637250017" />
+      <entry key="H4" value="222.5212113601227" />
+      <entry key="D1" value="346.3999330631439" />
+      <entry key="W1" value="374.97895193580496" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3K1VNEs6QumyftS1d6dp3bUnyQG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.EurekaServerApplication.executor": "Debug",
+    "Spring Boot.MsDuenoApplication.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/valen/Desktop/eso/ms-duenio/src/main/java/com/eso/Main.java",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\valen\Desktop\eso" />
+      <recent name="C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\ms_duenio" />
+      <recent name="C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\adapter\in\dto" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.eso.adapter.in.dto.web" />
+      <recent name="domain.model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.eureka_server.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.337" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.8665.337" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="" />
+      <created>1790733696161</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1790733696161</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
