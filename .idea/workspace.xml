@@ -5,14 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/MsTurnoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/TurnoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/dto/TurnoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/dto/TurnoRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/dto/TurnoResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/persistence/TurnoJpaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/persistence/TurnoRepositoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/application/TurnoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/DuplicateResourceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/TurnoNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/TurnoSuperpuestoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/model/EstadoTurno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/model/Turno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/port/in/TurnoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/port/out/TurnoRepositoryPort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/resources/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/ErrorResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/GlobalException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/in/web/DuenioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/in/web/DuenioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-mascota/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-veterinario/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-veterinario/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-veterinario/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-veterinario/target/classes/application.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,12 +44,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="34" />
+    <option name="cachedIndexableFilesCount" value="74" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
         <option value="Exception" />
@@ -54,61 +78,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000000022" />
-      <entry key="MS500" value="1.001184094549865" />
-      <entry key="S2" value="1.1855011453888145" />
-      <entry key="S5" value="1.5097300605469262" />
-      <entry key="S10" value="1.7158783213105901" />
-      <entry key="S30" value="2.1017371887835683" />
-      <entry key="S60" value="2.7532488787909877" />
-      <entry key="M2" value="3.830998654078927" />
-      <entry key="M5" value="5.389456638478" />
-      <entry key="M10" value="6.3701404104285855" />
-      <entry key="M15" value="6.917912084584011" />
-      <entry key="M30" value="10.06052373165116" />
-      <entry key="H1" value="28.309594778785616" />
-      <entry key="H2" value="90.25104776666923" />
-      <entry key="H4" value="211.3960711372747" />
-      <entry key="D1" value="527.0682936023792" />
-      <entry key="W1" value="629.6592959085013" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000163313094852" />
+      <entry key="S2" value="1.0635704534548887" />
+      <entry key="S5" value="1.3328506593077623" />
+      <entry key="S10" value="1.612439611507229" />
+      <entry key="S30" value="2.3502495829110375" />
+      <entry key="S60" value="2.9326492127094506" />
+      <entry key="M2" value="3.541539577399212" />
+      <entry key="M5" value="5.368539465261975" />
+      <entry key="M10" value="7.5941062233759" />
+      <entry key="M15" value="8.937857632517836" />
+      <entry key="M30" value="12.769943111735286" />
+      <entry key="H1" value="30.1456879236966" />
+      <entry key="H2" value="90.21273857519098" />
+      <entry key="H4" value="210.45760099524475" />
+      <entry key="D1" value="529.5799283861207" />
+      <entry key="W1" value="634.2339224240045" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.1406080425357953E-114" />
-      <entry key="MS500" value="1.701801902956623E-23" />
-      <entry key="S2" value="2.9379574738642843E-6" />
-      <entry key="S5" value="0.009129279754031142" />
-      <entry key="S10" value="0.1357171185056437" />
-      <entry key="S30" value="0.9131549057222574" />
-      <entry key="S60" value="1.591335644756522" />
-      <entry key="M2" value="2.159218936575953" />
-      <entry key="M5" value="2.6221002035142438" />
-      <entry key="M10" value="2.8034334460297745" />
-      <entry key="M15" value="2.8725499478059686" />
-      <entry key="M30" value="3.1128557966759374" />
-      <entry key="H1" value="5.06730987967006" />
-      <entry key="H2" value="14.146943420089649" />
-      <entry key="H4" value="33.92893275399229" />
-      <entry key="D1" value="87.20587857843331" />
-      <entry key="W1" value="104.69614564866747" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="7.705635578272998E-95" />
+      <entry key="S5" value="3.372420340076481E-38" />
+      <entry key="S10" value="2.6084782658425823E-19" />
+      <entry key="S30" value="1.1353470974372568E-6" />
+      <entry key="S60" value="0.0017744096449860112" />
+      <entry key="M2" value="0.07210123932336897" />
+      <entry key="M5" value="0.6731435735419233" />
+      <entry key="M10" value="1.4204287702972012" />
+      <entry key="M15" value="1.8256620816187439" />
+      <entry key="M30" value="2.481620715041642" />
+      <entry key="H1" value="4.524448665136565" />
+      <entry key="H2" value="13.367700828866674" />
+      <entry key="H4" value="32.9812604702045" />
+      <entry key="D1" value="86.79511247122748" />
+      <entry key="W1" value="104.62555293436498" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9330329915368095" />
-      <entry key="MS500" value="0.9873876175795352" />
-      <entry key="S2" value="1.1808900574975614" />
-      <entry key="S5" value="1.5152805350567005" />
-      <entry key="S10" value="1.84261340147097" />
-      <entry key="S30" value="2.9860553631968676" />
-      <entry key="S60" value="4.305054679944394" />
-      <entry key="M2" value="5.950031712986905" />
-      <entry key="M5" value="7.9844575754700795" />
-      <entry key="M10" value="9.157156417903485" />
-      <entry key="M15" value="9.778643567194916" />
-      <entry key="M30" value="13.165478756697805" />
-      <entry key="H1" value="33.367300766572995" />
-      <entry key="H2" value="104.38391948292391" />
-      <entry key="H4" value="245.31014124408443" />
-      <entry key="D1" value="614.2688825962385" />
-      <entry key="W1" value="734.3545673997725" />
+      <entry key="MS100" value="1.9119770860426583E-13" />
+      <entry key="MS500" value="0.0028753611783151204" />
+      <entry key="S2" value="0.29431168078214315" />
+      <entry key="S5" value="0.8883613054729171" />
+      <entry key="S10" value="1.3544404679412327" />
+      <entry key="S30" value="2.2431838714306256" />
+      <entry key="S60" value="2.873621169058326" />
+      <entry key="M2" value="3.579145939968598" />
+      <entry key="M5" value="6.020475224226701" />
+      <entry key="M10" value="8.998842149991194" />
+      <entry key="M15" value="10.7510237099463" />
+      <entry key="M30" value="15.242734112488765" />
+      <entry key="H1" value="34.66028532343887" />
+      <entry key="H2" value="103.56650186167401" />
+      <entry key="H4" value="243.4240927565079" />
+      <entry key="D1" value="616.3697225542094" />
+      <entry key="W1" value="738.8585941258455" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -145,6 +169,7 @@
     "Spring Boot.MsDuenioApplication.executor": "Run",
     "Spring Boot.MsDuenoApplication.executor": "Run",
     "Spring Boot.MsMascotaApplication.executor": "Run",
+    "Spring Boot.MsTurnoApplication.executor": "Run",
     "Spring Boot.MsVeterinarioApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
@@ -152,7 +177,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/valen/Desktop/eso/ms-mascota/ms-veterinario/src/main/java/com/eso/adapter/in/web",
+    "last_opened_file_path": "C:/Users/valen/Desktop/eso/ms-turno/src/main/java/com/eso/domain/exception",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -164,15 +189,19 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\valen\Desktop\eso\ms-turno\src\main\java\com\eso\domain\exception" />
+      <recent name="C:\Users\valen\Desktop\eso\ms-turno\src\main\java\com\eso\adapter\in\web" />
       <recent name="C:\Users\valen\Desktop\eso\ms-mascota\ms-veterinario\src\main\java\com\eso\adapter\in\web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\valen\Desktop\eso\ms-mascota" />
       <recent name="C:\Users\valen\Desktop\eso" />
       <recent name="C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\ms_duenio" />
       <recent name="C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\adapter\in\dto" />
@@ -191,7 +220,32 @@
       <command value="mvn spring-boot:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MsMascotaApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="EurekaServerApplication" value="STOPPED" />
+              <entry key="MsDuenioApplication" value="STOPPED" />
+              <entry key="MsMascotaApplication" value="STOPPED" />
+              <entry key="MsTurnoApplication" value="STOPPED" />
+              <entry key="MsVeterinarioApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.MsTurnoApplication">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.eureka_server.EurekaServerApplication" />
@@ -209,6 +263,13 @@
     <configuration name="MsMascotaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ms-mascota" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.MsMascotaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsTurnoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-turno" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.MsTurnoApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

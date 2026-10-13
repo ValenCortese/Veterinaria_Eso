@@ -16,6 +16,7 @@
         <module>eureka-server</module>
         <module>ms-mascota</module>
         <module>ms-veterinario</module>
+        <module>ms-turno</module>
     </modules>
 
     <parent>
@@ -39,6 +40,13 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>2025.0.0</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
