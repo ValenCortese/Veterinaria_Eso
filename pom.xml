@@ -15,6 +15,7 @@
         <module>ms-duenio</module>
         <module>eureka-server</module>
         <module>ms-mascota</module>
+        <module>ms-veterinario</module>
     </modules>
 
     <parent>

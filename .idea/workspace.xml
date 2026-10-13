@@ -5,33 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/out/persistence/DuenioJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-mascota/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/adapter/in/web/MascotaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-mascota/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/ErrorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/GlobalException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/DuenioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/DuenioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/out/persistance/DuenioRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/out/persistence/DuenioRepositoryAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/DuenioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/DuenioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/dto/DuenioMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/dto/DuenioMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/dto/DuenioRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/dto/DuenioRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/dto/DuenioResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/dto/DuenioResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/domain/port/in/DuenioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/domain/port/in/DuenioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/GlobalException.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/in/web/DuenioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/in/web/DuenioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/adapter/out/persistance/DuenioRepositoryAdapter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/application/DuenioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/application/DuenioServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/application/dto/DuenioMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/application/dto/DuenioRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/application/dto/DuenioResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/domain/port/in/DuenioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/target/classes/com/eso/domain/port/in/DuenioService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +29,7 @@
         <option value="Record" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -72,61 +54,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000534957678" />
-      <entry key="S2" value="1.0152082714712225" />
-      <entry key="S5" value="1.1874269707074545" />
-      <entry key="S10" value="1.4333249962631314" />
-      <entry key="S30" value="1.9059912066256914" />
-      <entry key="S60" value="2.537507384740125" />
-      <entry key="M2" value="3.3513701450882794" />
-      <entry key="M5" value="4.425707764411348" />
-      <entry key="M10" value="6.0193234644139535" />
-      <entry key="M15" value="8.12025446649627" />
-      <entry key="M30" value="20.275368984958618" />
-      <entry key="H1" value="62.16558441073673" />
-      <entry key="H2" value="146.2902333996095" />
-      <entry key="H4" value="267.06182324631527" />
-      <entry key="D1" value="516.1648663446025" />
-      <entry key="W1" value="587.8248745645777" />
+      <entry key="MS100" value="1.0000000000000022" />
+      <entry key="MS500" value="1.001184094549865" />
+      <entry key="S2" value="1.1855011453888145" />
+      <entry key="S5" value="1.5097300605469262" />
+      <entry key="S10" value="1.7158783213105901" />
+      <entry key="S30" value="2.1017371887835683" />
+      <entry key="S60" value="2.7532488787909877" />
+      <entry key="M2" value="3.830998654078927" />
+      <entry key="M5" value="5.389456638478" />
+      <entry key="M10" value="6.3701404104285855" />
+      <entry key="M15" value="6.917912084584011" />
+      <entry key="M30" value="10.06052373165116" />
+      <entry key="H1" value="28.309594778785616" />
+      <entry key="H2" value="90.25104776666923" />
+      <entry key="H4" value="211.3960711372747" />
+      <entry key="D1" value="527.0682936023792" />
+      <entry key="W1" value="629.6592959085013" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="4.387792135329391E-160" />
-      <entry key="S5" value="1.8067514758796693E-64" />
-      <entry key="S10" value="1.3441545580325464E-32" />
-      <entry key="S30" value="2.3776599169408585E-11" />
-      <entry key="S60" value="4.876184807938374E-6" />
-      <entry key="M2" value="0.002215985603182007" />
-      <entry key="M5" value="0.09711454644359152" />
-      <entry key="M10" value="0.4283574661156282" />
-      <entry key="M15" value="0.7865832996523231" />
-      <entry key="M30" value="2.378310081929384" />
-      <entry key="H1" value="8.821768644217187" />
-      <entry key="H2" value="23.552988910546564" />
-      <entry key="H4" value="44.87063543645151" />
-      <entry key="D1" value="88.25598724278866" />
-      <entry key="W1" value="100.7093939624126" />
+      <entry key="MS100" value="1.1406080425357953E-114" />
+      <entry key="MS500" value="1.701801902956623E-23" />
+      <entry key="S2" value="2.9379574738642843E-6" />
+      <entry key="S5" value="0.009129279754031142" />
+      <entry key="S10" value="0.1357171185056437" />
+      <entry key="S30" value="0.9131549057222574" />
+      <entry key="S60" value="1.591335644756522" />
+      <entry key="M2" value="2.159218936575953" />
+      <entry key="M5" value="2.6221002035142438" />
+      <entry key="M10" value="2.8034334460297745" />
+      <entry key="M15" value="2.8725499478059686" />
+      <entry key="M30" value="3.1128557966759374" />
+      <entry key="H1" value="5.06730987967006" />
+      <entry key="H2" value="14.146943420089649" />
+      <entry key="H4" value="33.92893275399229" />
+      <entry key="D1" value="87.20587857843331" />
+      <entry key="W1" value="104.69614564866747" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.8189894035458534E-12" />
-      <entry key="MS500" value="0.0044871523805041025" />
-      <entry key="S2" value="0.2737270157264723" />
-      <entry key="S5" value="0.7683185752113212" />
-      <entry key="S10" value="1.194746659445022" />
-      <entry key="S30" value="1.8187194457355287" />
-      <entry key="S60" value="2.4926449845505276" />
-      <entry key="M2" value="3.330721889227712" />
-      <entry key="M5" value="4.5127528273237045" />
-      <entry key="M10" value="6.440278138154106" />
-      <entry key="M15" value="8.89947453004802" />
-      <entry key="M30" value="22.642916479783036" />
-      <entry key="H1" value="70.96866200732985" />
-      <entry key="H2" value="169.82154329877312" />
-      <entry key="H4" value="311.91448951923263" />
-      <entry key="D1" value="604.4158677437968" />
-      <entry key="W1" value="688.5334817634225" />
+      <entry key="MS100" value="0.9330329915368095" />
+      <entry key="MS500" value="0.9873876175795352" />
+      <entry key="S2" value="1.1808900574975614" />
+      <entry key="S5" value="1.5152805350567005" />
+      <entry key="S10" value="1.84261340147097" />
+      <entry key="S30" value="2.9860553631968676" />
+      <entry key="S60" value="4.305054679944394" />
+      <entry key="M2" value="5.950031712986905" />
+      <entry key="M5" value="7.9844575754700795" />
+      <entry key="M10" value="9.157156417903485" />
+      <entry key="M15" value="9.778643567194916" />
+      <entry key="M30" value="13.165478756697805" />
+      <entry key="H1" value="33.367300766572995" />
+      <entry key="H2" value="104.38391948292391" />
+      <entry key="H4" value="245.31014124408443" />
+      <entry key="D1" value="614.2688825962385" />
+      <entry key="W1" value="734.3545673997725" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -142,7 +124,13 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Maven.eso [spring-boot:run,-pl,ms-duenio].executor": "Run",
+    "Maven.eso [spring-boot:run,-pl,ms-mascota].executor": "Run",
+    "Maven.eso [spring-boot:run,-pl,ms-veterinario].executor": "Run",
+    "Maven.eso [spring-boot:run].executor": "Run",
     "Maven.ms-duenio [validate].executor": "Run",
+    "Maven.ms-mascota [package].executor": "Run",
+    "Maven.ms-mascota [validate].executor": "Run",
+    "Maven.ms-veterinario [validate].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -156,12 +144,15 @@
     "Spring Boot.EurekaServerApplication.executor": "Run",
     "Spring Boot.MsDuenioApplication.executor": "Run",
     "Spring Boot.MsDuenoApplication.executor": "Run",
+    "Spring Boot.MsMascotaApplication.executor": "Run",
+    "Spring Boot.MsVeterinarioApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "microservicios",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/valen/Desktop/eso/ms-mascota/ms-veterinario/src/main/java/com/eso/adapter/in/web",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -169,18 +160,25 @@
     "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/valen/Desktop/eso/ms-mascota/src/main/java/com/eso/Main.java",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "onboarding.tips.debug.path": "C:/Users/valen/Desktop/eso/ms-mascota/ms-veterinario/src/main/java/com/eso/Main.java",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\valen\Desktop\eso\ms-mascota\ms-veterinario\src\main\java\com\eso\adapter\in\web" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\valen\Desktop\eso" />
       <recent name="C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\ms_duenio" />
       <recent name="C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\adapter\in\dto" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.eso.adapter.in.web" />
       <recent name="com.eso.adapter.in.dto.web" />
       <recent name="domain.model" />
     </key>
@@ -188,9 +186,12 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn spring-boot:run -pl ms-duenio" />
+      <command value="mvn spring-boot:run -pl ms-mascota" />
+      <command value="mvn spring-boot:run -pl ms-veterinario" />
+      <command value="mvn spring-boot:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.EurekaServerApplication">
+  <component name="RunManager" selected="Spring Boot.MsMascotaApplication">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="eureka-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.eureka_server.EurekaServerApplication" />
@@ -201,6 +202,20 @@
     <configuration name="MsDuenioApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ms-duenio" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.MsDuenioApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsMascotaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-mascota" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.MsMascotaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsVeterinarioApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="ms-veterinario" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.eso.MsVeterinarioApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
