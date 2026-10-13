@@ -1,4 +1,4 @@
-package com.eso.adapter.in.web.dto;
+package com.eso.application.dto;
 
 import com.eso.domain.model.Duenio;
 

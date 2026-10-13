@@ -1,0 +1,15 @@
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\ErrorResponse.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\GlobalException.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\in\web\DuenioController.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\out\persistance\DuenioRepositoryAdapter.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\dto\DuenioMapper.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\dto\DuenioRequest.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\dto\DuenioResponse.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\DuenioServiceImpl.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\exception\DuenioNotFoundException.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\exception\DuplicateEmailException.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\exception\ResourceNotFoundException.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\model\Duenio.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\port\in\DuenioService.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\port\out\DuenioRepositoryPort.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\MsDuenioApplication.java

@@ -1,0 +1,4 @@
+com\eso\application\dto\DuenioMapper.class
+com\eso\application\dto\DuenioRequest.class
+com\eso\adapter\out\persistance\DuenioRepositoryAdapter.class
+com\eso\application\dto\DuenioResponse.class

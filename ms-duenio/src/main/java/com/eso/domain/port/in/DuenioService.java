@@ -1,16 +1,16 @@
 package com.eso.domain.port.in;
 
-import com.eso.domain.model.Duenio;
-
+import com.eso.application.dto.DuenioRequest;
+import com.eso.application.dto.DuenioResponse;
 import java.util.List;
 
 public interface DuenioService {
 
-    List<Duenio> listAll();
-    Duenio save(Duenio duenio);
-    Duenio update(Long id, Duenio duenio);
+    List<DuenioResponse> listAll();
+    DuenioResponse save(DuenioRequest duenioRequest);
+    DuenioResponse update(Long id, DuenioRequest duenioRequest);
     void deleteById(Long id);
-    Duenio findById(Long id);
-    Duenio findByEmail(String email);
-    Duenio findByNombre(String nombre);
+    DuenioResponse findById(Long id);
+    DuenioResponse findByEmail(String email);
+    DuenioResponse findByNombre(String nombre);
 }

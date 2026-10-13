@@ -4,85 +4,112 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="" />
+    <list default="true" id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/MsDuenioApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/out/persistance/DuenioRepositoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/DuenioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/DuenioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/dto/DuenioMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/dto/DuenioMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/dto/DuenioRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/dto/DuenioRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/dto/DuenioResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/dto/DuenioResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/DuenioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/application/DuenioServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/domain/port/in/DuenioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/domain/port/in/DuenioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/resources/application.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="6" />
+    <option name="cachedIndexableFilesCount" value="32" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ValenCortese&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ValenCortese/Veterinaria_Eso&quot;,
+    &quot;accountId&quot;: &quot;1ed25ddc-7d62-4258-a32e-c1fa0d7b240b&quot;
+  }
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0016885492798981" />
-      <entry key="MS500" value="1.2789348305812411" />
-      <entry key="S2" value="1.7267343483876494" />
-      <entry key="S5" value="1.8803740174763983" />
-      <entry key="S10" value="1.9599105567465458" />
-      <entry key="S30" value="2.4710036654057914" />
-      <entry key="S60" value="3.717655034233689" />
-      <entry key="M2" value="7.049885018355478" />
-      <entry key="M5" value="14.27936134398936" />
-      <entry key="M10" value="19.347640580622482" />
-      <entry key="M15" value="21.820283563889138" />
-      <entry key="M30" value="28.76342877344549" />
-      <entry key="H1" value="57.123673766966654" />
-      <entry key="H2" value="120.5948696333654" />
-      <entry key="H4" value="194.28399501710348" />
-      <entry key="D1" value="301.17132235273544" />
-      <entry key="W1" value="325.69584548523994" />
+      <entry key="MS100" value="1.0928178960855273" />
+      <entry key="MS500" value="2.02070581765573" />
+      <entry key="S2" value="2.685052603397412" />
+      <entry key="S5" value="2.8670325175122233" />
+      <entry key="S10" value="2.932290180552184" />
+      <entry key="S30" value="2.977289041902698" />
+      <entry key="S60" value="3.0052484601705434" />
+      <entry key="M2" value="3.2767540810891007" />
+      <entry key="M5" value="11.011713016617987" />
+      <entry key="M10" value="38.88091529730624" />
+      <entry key="M15" value="65.29292661429352" />
+      <entry key="M30" value="118.51025205471966" />
+      <entry key="H1" value="174.70442155704924" />
+      <entry key="H2" value="247.72318652169676" />
+      <entry key="H4" value="343.3173065863942" />
+      <entry key="D1" value="520.949615007184" />
+      <entry key="W1" value="568.4141584891116" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="7.467198523200196E-159" />
-      <entry key="S2" value="2.9396080256668687E-40" />
-      <entry key="S5" value="1.5392734188424674E-16" />
-      <entry key="S10" value="1.240675066191239E-8" />
-      <entry key="S30" value="0.002350081057819196" />
-      <entry key="S60" value="0.05836779728388406" />
-      <entry key="M2" value="0.39471648399945625" />
-      <entry key="M5" value="1.508593762524481" />
-      <entry key="M10" value="2.454621874118066" />
-      <entry key="M15" value="2.992771251069063" />
-      <entry key="M30" value="4.478445021136163" />
-      <entry key="H1" value="8.545877012267875" />
-      <entry key="H2" value="17.322035305117225" />
-      <entry key="H4" value="28.242598647957344" />
-      <entry key="D1" value="45.230029393902896" />
-      <entry key="W1" value="49.28332698230349" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="5.51672223183778E-246" />
+      <entry key="S5" value="7.882653690507666E-99" />
+      <entry key="S10" value="8.87843134635133E-50" />
+      <entry key="S30" value="4.4873960368132454E-17" />
+      <entry key="S60" value="7.688189369952307E-9" />
+      <entry key="M2" value="1.666055604367779E-4" />
+      <entry key="M5" value="0.14376530226434114" />
+      <entry key="M10" value="1.8773514957224646" />
+      <entry key="M15" value="4.768025288801999" />
+      <entry key="M30" value="13.548745466305759" />
+      <entry key="H1" value="25.913394098092706" />
+      <entry key="H2" value="41.276155374913564" />
+      <entry key="H4" value="58.98787482281796" />
+      <entry key="D1" value="90.22107845356855" />
+      <entry key="W1" value="98.50177816935243" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0023241056616525486" />
-      <entry key="MS500" value="0.36512861449329326" />
-      <entry key="S2" value="1.2487422388691243" />
-      <entry key="S5" value="1.6500866037614281" />
-      <entry key="S10" value="1.837011972667943" />
-      <entry key="S30" value="2.429184553386882" />
-      <entry key="S60" value="3.7442479495068293" />
-      <entry key="M2" value="7.411302092930917" />
-      <entry key="M5" value="15.759198646813433" />
-      <entry key="M10" value="21.78252351884215" />
-      <entry key="M15" value="24.798156319921993" />
-      <entry key="M30" value="33.23250643585631" />
-      <entry key="H1" value="65.6621912982666" />
-      <entry key="H2" value="137.91011637250017" />
-      <entry key="H4" value="222.5212113601227" />
-      <entry key="D1" value="346.3999330631439" />
-      <entry key="W1" value="374.97895193580496" />
+      <entry key="MS100" value="1.0681873773474944" />
+      <entry key="MS500" value="2.0001318556418664" />
+      <entry key="S2" value="2.6764123096552104" />
+      <entry key="S5" value="2.863172868534524" />
+      <entry key="S10" value="2.9302871470233094" />
+      <entry key="S30" value="2.976601313446188" />
+      <entry key="S60" value="3.0047136610228846" />
+      <entry key="M2" value="3.2756907130768753" />
+      <entry key="M5" value="11.14909694873366" />
+      <entry key="M10" value="40.72627753824632" />
+      <entry key="M15" value="70.0097151528013" />
+      <entry key="M30" value="131.99406660357425" />
+      <entry key="H1" value="200.56368304571384" />
+      <entry key="H2" value="288.96236235699456" />
+      <entry key="H4" value="402.28220806708066" />
+      <entry key="D1" value="611.165720078795" />
+      <entry key="W1" value="666.9151850362684" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -96,6 +123,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Maven.eso [spring-boot:run,-pl,ms-duenio].executor": "Run",
+    "Maven.ms-duenio [validate].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -103,11 +133,14 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "Spring Boot.EurekaServerApplication.executor": "Debug",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
+    "Spring Boot.MsDuenioApplication.executor": "Run",
     "Spring Boot.MsDuenoApplication.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "microservicios",
     "ignore.virus.scanning.warn.message": "true",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
@@ -133,6 +166,11 @@
       <recent name="com.eso.adapter.in.dto.web" />
       <recent name="domain.model" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn spring-boot:run -pl ms-duenio" />
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
@@ -171,11 +209,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

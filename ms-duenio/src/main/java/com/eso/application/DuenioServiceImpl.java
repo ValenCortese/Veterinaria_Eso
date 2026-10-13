@@ -1,5 +1,8 @@
 package com.eso.application;
 
+import com.eso.application.dto.DuenioMapper;
+import com.eso.application.dto.DuenioRequest;
+import com.eso.application.dto.DuenioResponse;
 import com.eso.domain.exception.DuenioNotFoundException;
 import com.eso.domain.exception.DuplicateEmailException;
 import com.eso.domain.model.Duenio;
@@ -18,61 +21,76 @@ public class DuenioServiceImpl implements DuenioService {
     private final DuenioRepositoryPort duenioRepository;
 
     @Override
-    public List<Duenio> listAll() {
-        return duenioRepository.findAll();
+    public List<DuenioResponse> listAll() {
+        return duenioRepository.findAll().stream()
+                .map(DuenioMapper::toResponse)
+                .toList();
     }
 
     @Override
     @Transactional
-    public Duenio save(Duenio duenio) {
+    public DuenioResponse save(DuenioRequest duenioRequest) {
+        Duenio duenio = DuenioMapper.toEntity(duenioRequest);
+
         if (duenioRepository.existsByEmail(duenio.getEmail())) {
             throw new DuplicateEmailException(duenio.getEmail());
         }
-        return duenioRepository.save(duenio);
+
+        Duenio duenioGuardado = duenioRepository.save(duenio);
+        return DuenioMapper.toResponse(duenioGuardado);
     }
 
     @Override
     @Transactional
-    public Duenio update(Long id, Duenio duenio) {
-        Duenio duenioExistente = findById(id);
-        duenioExistente.setNombre(duenio.getNombre());
-        duenioExistente.setApellido(duenio.getApellido());
-        duenioExistente.setTelefono(duenio.getTelefono());
-        duenioExistente.setCedula(duenio.getCedula());
-        duenioExistente.setEmail(duenio.getEmail());
-        return duenioRepository.save(duenioExistente);
+    public DuenioResponse update(Long id, DuenioRequest duenioRequest) {
+        Duenio duenioExistente = obtenerEntidadDuenio(id);
+
+        duenioExistente.setNombre(duenioRequest.getNombre());
+        duenioExistente.setApellido(duenioRequest.getApellido());
+        duenioExistente.setTelefono(duenioRequest.getTelefono());
+        duenioExistente.setCedula(duenioRequest.getCedula());
+        duenioExistente.setEmail(duenioRequest.getEmail());
+
+        Duenio duenioActualizado = duenioRepository.save(duenioExistente);
+        return DuenioMapper.toResponse(duenioActualizado);
     }
 
     @Override
     @Transactional
     public void deleteById(Long id) {
-        findById(id);
+        obtenerEntidadDuenio(id);
         duenioRepository.deleteById(id);
     }
 
     @Override
-    public Duenio findById(Long id) {
-        Duenio duenio = duenioRepository.findById(id);
-        if (duenio == null) {
-            throw new DuenioNotFoundException(id);
-        }
-        return duenio;
+    public DuenioResponse findById(Long id) {
+        return DuenioMapper.toResponse(obtenerEntidadDuenio(id));
     }
 
     @Override
-    public Duenio findByEmail(String email) {
+    public DuenioResponse findByEmail(String email) {
         Duenio duenio = duenioRepository.findByEmail(email);
         if (duenio == null) {
             throw new DuenioNotFoundException("email", email);
         }
-        return duenio;
+        return DuenioMapper.toResponse(duenio);
     }
 
     @Override
-    public Duenio findByNombre(String nombre) {
+    public DuenioResponse findByNombre(String nombre) {
         Duenio duenio = duenioRepository.findByNombre(nombre);
         if (duenio == null) {
             throw new DuenioNotFoundException("nombre", nombre);
+        }
+        return DuenioMapper.toResponse(duenio);
+    }
+    /**
+     * Devuelve la Entidad pura de Dominio para uso interno de esta clase.
+     */
+    private Duenio obtenerEntidadDuenio(Long id) {
+        Duenio duenio = duenioRepository.findById(id);
+        if (duenio == null) {
+            throw new DuenioNotFoundException(id);
         }
         return duenio;
     }
