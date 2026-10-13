@@ -1,8 +1,8 @@
 package com.eso.application;
 
-import com.eso.application.dto.DuenioMapper;
-import com.eso.application.dto.DuenioRequest;
-import com.eso.application.dto.DuenioResponse;
+import com.eso.adapter.in.web.dto.DuenioMapper;
+import com.eso.adapter.in.web.dto.DuenioRequest;
+import com.eso.adapter.in.web.dto.DuenioResponse;
 import com.eso.domain.exception.DuenioNotFoundException;
 import com.eso.domain.exception.DuplicateEmailException;
 import com.eso.domain.model.Duenio;

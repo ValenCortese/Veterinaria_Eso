@@ -1,4 +1,4 @@
-package com.eso.adapter.out.persistance;
+package com.eso.adapter.out.persistence;
 
 import com.eso.domain.model.Duenio;
 import com.eso.domain.port.out.DuenioRepositoryPort;
@@ -8,56 +8,54 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-@Repository // <--- Esta anotación es obligatoria para solucionar el error
+@Repository
 @RequiredArgsConstructor
 public class DuenioRepositoryAdapter implements DuenioRepositoryPort {
 
-    // Aquí inyectarás tu interfaz de Spring Data JPA (ej. DuenioJpaRepository)
-    // private final DuenioJpaRepository jpaRepository;
+    private final DuenioJpaRepository jpaRepository;
 
     @Override
     public Duenio findByNombre(String nombre) {
-        // Implementación delegando a jpaRepository
-        return null;
+        return jpaRepository.findByNombre(nombre).orElse(null);
     }
 
     @Override
     public Duenio findByEmail(String email) {
-        return null;
+        return jpaRepository.findByEmail(email).orElse(null);
     }
 
     @Override
     public Optional<Duenio> findByNombreAndApellido(String nombre, String apellido) {
-        return Optional.empty();
+        return jpaRepository.findByNombreAndApellido(nombre, apellido);
     }
 
     @Override
     public boolean existsByEmail(String email) {
-        return false;
+        return jpaRepository.existsByEmail(email);
     }
 
     @Override
     public boolean existsByNombre(String nombre) {
-        return false;
+        return jpaRepository.existsByNombre(nombre);
     }
 
     @Override
     public List<Duenio> findAll() {
-        return List.of();
+        return jpaRepository.findAll();
     }
 
     @Override
     public Duenio save(Duenio duenio) {
-        return null;
+        return jpaRepository.save(duenio);
     }
 
     @Override
     public Duenio findById(Long id) {
-        return null;
+        return jpaRepository.findById(id).orElse(null);
     }
 
     @Override
     public void deleteById(Long id) {
-        // Implementación
+        jpaRepository.deleteById(id);
     }
 }

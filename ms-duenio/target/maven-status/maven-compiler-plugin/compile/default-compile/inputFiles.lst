@@ -1,10 +1,11 @@
-C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\ErrorResponse.java
-C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\GlobalException.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\in\web\dto\DuenioMapper.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\in\web\dto\DuenioRequest.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\in\web\dto\DuenioResponse.java
 C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\in\web\DuenioController.java
-C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\out\persistance\DuenioRepositoryAdapter.java
-C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\dto\DuenioMapper.java
-C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\dto\DuenioRequest.java
-C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\dto\DuenioResponse.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\in\web\ErrorResponse.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\in\web\GlobalExceptionHandler.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\out\persistence\DuenioJpaRepository.java
+C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\adapter\out\persistence\DuenioRepositoryAdapter.java
 C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\application\DuenioServiceImpl.java
 C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\exception\DuenioNotFoundException.java
 C:\Users\valen\Desktop\eso\ms-duenio\src\main\java\com\eso\domain\exception\DuplicateEmailException.java

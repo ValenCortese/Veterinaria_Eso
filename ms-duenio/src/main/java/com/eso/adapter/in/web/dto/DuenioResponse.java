@@ -1,4 +1,4 @@
-package com.eso.application.dto;
+package com.eso.adapter.in.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

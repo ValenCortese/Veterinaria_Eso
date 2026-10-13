@@ -1,7 +1,9 @@
 package com.eso.domain.port.in;
 
-import com.eso.application.dto.DuenioRequest;
-import com.eso.application.dto.DuenioResponse;
+import com.eso.adapter.in.web.dto.DuenioRequest;
+import com.eso.adapter.in.web.dto.DuenioResponse;
+
+import java.util.Collection;
 import java.util.List;
 
 public interface DuenioService {

@@ -1,4 +1,4 @@
-package com.eso.adapter;
+package com.eso.adapter.in.web;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

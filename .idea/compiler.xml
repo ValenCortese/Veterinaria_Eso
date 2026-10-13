@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms-duenio" />
         <module name="eureka-server" />
+        <module name="ms-mascota" />
       </profile>
     </annotationProcessing>
   </component>
@@ -15,6 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eureka-server" options="-parameters" />
       <module name="ms-duenio" options="-parameters" />
+      <module name="ms-mascota" options="-parameters" />
     </option>
   </component>
 </project>

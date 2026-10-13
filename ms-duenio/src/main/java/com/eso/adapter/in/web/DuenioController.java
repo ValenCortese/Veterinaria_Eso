@@ -1,7 +1,7 @@
 package com.eso.adapter.in.web;
 
-import com.eso.application.dto.DuenioRequest;
-import com.eso.application.dto.DuenioResponse;
+import com.eso.adapter.in.web.dto.DuenioRequest;
+import com.eso.adapter.in.web.dto.DuenioResponse;
 import com.eso.domain.port.in.DuenioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -9,7 +9,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +19,10 @@ import java.util.List;
 @Tag(name="Duenios", description = "CRUD - Veterinaria - Duenio")
 @RestController
 @RequestMapping("/api/duenio")
+@RequiredArgsConstructor
 public class DuenioController {
 
-    @Autowired
-    private DuenioService duenioService;
+    private final DuenioService duenioService;
 
     @GetMapping
     @Operation(summary = "Lista todos los dueños", description = "Devuelve una lista con todos los dueños y su información.")
@@ -59,7 +59,7 @@ public class DuenioController {
     @Operation(summary = "Busca un dueño por nombre")
     public ResponseEntity<DuenioResponse> getDuenioByNombre(
             @Parameter(description = "Nombre del dueño", example = "María")
-            @RequestParam String nombre){
+            @PathVariable String nombre) {
         return ResponseEntity.ok(duenioService.findByNombre(nombre));
     }
 
@@ -71,7 +71,7 @@ public class DuenioController {
             @ApiResponse(responseCode = "409", description = "La cédula ya se encuentra registrada"),
             @ApiResponse(responseCode = "500", description = "Error interno del servidor")
     })
-    public ResponseEntity<DuenioResponse> createDuenio(@Valid @RequestBody DuenioRequest duenioRequest){
+    public ResponseEntity<DuenioResponse> createDuenio(@Valid @RequestBody DuenioRequest duenioRequest) {
         return ResponseEntity.status(HttpStatus.CREATED).body(duenioService.save(duenioRequest));
     }
 
@@ -80,7 +80,7 @@ public class DuenioController {
     public ResponseEntity<DuenioResponse> updateDuenio(
             @Parameter(description = "ID del dueño a actualizar", example = "1")
             @PathVariable Long id, @Valid @RequestBody DuenioRequest duenioRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(duenioService.update(id, duenioRequest));
+        return ResponseEntity.status(HttpStatus.OK).body(duenioService.update(id, duenioRequest));
     }
 
     @DeleteMapping("/{id}")
