@@ -5,33 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/java/com/eso/ConfigServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/ms-duenio.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/ms-mascota.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/ms-turno.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/ms-veterinario.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-duenio/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-mascota/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/resources/banner.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-veterinario/src/main/resources/banner.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/MascotaFeignAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/MascotaFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/MascotaResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/VeterinarioFeignAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/VeterinarioFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/VeterinarioResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/MascotaNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/VeterinarioNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/port/out/MascotaServicePort.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/port/out/VeterinarioServicePort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-mascota/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/ErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/ErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/adapter/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-duenio/src/main/java/com/eso/domain/exception/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/adapter/in/web/dto/MascotaMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/adapter/in/web/dto/MascotaMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/adapter/in/web/dto/MascotaRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/adapter/in/web/dto/MascotaRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/application/MascotaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/application/MascotaServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/domain/exception/MascotaNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/domain/exception/MascotaNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/domain/exception/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/domain/port/in/MascotaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/domain/port/in/MascotaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/domain/port/out/MascotaRepositoryPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-mascota/src/main/java/com/eso/domain/port/out/MascotaRepositoryPort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-turno/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/MsTurnoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/MsTurnoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/application/TurnoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/application/TurnoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/DuplicateResourceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/TurnoNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/TurnoNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/TurnoSuperpuestoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/port/in/TurnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/port/in/TurnoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-veterinario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-veterinario/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-veterinario/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-veterinario/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-veterinario/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-veterinario/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +46,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="97" />
+    <option name="cachedIndexableFilesCount" value="110" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,8 +54,8 @@
         <option value="Record" />
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Exception" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -73,61 +80,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.000098262489263" />
-      <entry key="S5" value="1.0250272638433549" />
-      <entry key="S10" value="1.1763938967302436" />
-      <entry key="S30" value="2.5997512079303444" />
-      <entry key="S60" value="5.156731353058048" />
-      <entry key="M2" value="8.669397733009031" />
-      <entry key="M5" value="14.944286497393884" />
-      <entry key="M10" value="21.289840392989923" />
-      <entry key="M15" value="25.138536842145204" />
-      <entry key="M30" value="32.220872221374165" />
-      <entry key="H1" value="50.17139679157085" />
-      <entry key="H2" value="108.66980254639375" />
-      <entry key="H4" value="228.0771354567127" />
-      <entry key="D1" value="552.1212096956223" />
-      <entry key="W1" value="659.6426438370797" />
+      <entry key="MS100" value="1.0000001936560623" />
+      <entry key="MS500" value="1.0454366411662597" />
+      <entry key="S2" value="1.4617181506876231" />
+      <entry key="S5" value="1.7581922472447968" />
+      <entry key="S10" value="2.126747451417831" />
+      <entry key="S30" value="3.6480238468310597" />
+      <entry key="S60" value="4.978489949054374" />
+      <entry key="M2" value="6.985914547927896" />
+      <entry key="M5" value="12.712860662217247" />
+      <entry key="M10" value="19.64072253159126" />
+      <entry key="M15" value="25.853551584501762" />
+      <entry key="M30" value="43.38127284175274" />
+      <entry key="H1" value="71.83613224240636" />
+      <entry key="H2" value="130.299408866047" />
+      <entry key="H4" value="248.8992924033246" />
+      <entry key="D1" value="606.7057281854857" />
+      <entry key="W1" value="733.615940124778" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="5.371384935192841E-107" />
-      <entry key="S5" value="4.488951947758513E-43" />
-      <entry key="S10" value="9.40411702866214E-22" />
-      <entry key="S30" value="1.6514358656598476E-7" />
-      <entry key="S60" value="6.569986588227E-4" />
-      <entry key="M2" value="0.044079707999575515" />
-      <entry key="M5" value="0.653658396538408" />
-      <entry key="M10" value="1.8442839513381937" />
-      <entry key="M15" value="2.686382176033592" />
-      <entry key="M30" value="4.082143141973704" />
-      <entry key="H1" value="6.481684573059879" />
-      <entry key="H2" value="15.171884891197436" />
-      <entry key="H4" value="34.631720244725024" />
-      <entry key="D1" value="89.22262170596419" />
-      <entry key="W1" value="107.52721813235331" />
+      <entry key="S2" value="1.762686770960088E-170" />
+      <entry key="S5" value="1.254499198240336E-68" />
+      <entry key="S10" value="1.1210202552932403E-34" />
+      <entry key="S30" value="5.280847099819491E-12" />
+      <entry key="S60" value="2.878952472479258E-6" />
+      <entry key="M2" value="0.0023872108554384205" />
+      <entry key="M5" value="0.1711327351959619" />
+      <entry key="M10" value="1.0128498691047296" />
+      <entry key="M15" value="2.1945506184648207" />
+      <entry key="M30" value="5.724009008719055" />
+      <entry key="H1" value="10.804330282743775" />
+      <entry key="H2" value="20.089546148378872" />
+      <entry key="H4" value="39.39709253673144" />
+      <entry key="D1" value="99.35476980305626" />
+      <entry key="W1" value="120.85901100032214" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9265880618903709" />
-      <entry key="MS500" value="0.9848664428955506" />
-      <entry key="S2" value="0.9962928028087252" />
-      <entry key="S5" value="1.0234619038990584" />
-      <entry key="S10" value="1.1754843369891927" />
-      <entry key="S30" value="2.598995959299069" />
-      <entry key="S60" value="5.156162363368428" />
-      <entry key="M2" value="8.710535052228233" />
-      <entry key="M5" value="15.590341675498324" />
-      <entry key="M10" value="23.12402405605467" />
-      <entry key="M15" value="27.814973564743646" />
-      <entry key="M30" value="36.29453271761564" />
-      <entry key="H1" value="56.6435196974231" />
-      <entry key="H2" value="123.82819146429486" />
-      <entry key="H4" value="262.69434044564326" />
-      <entry key="D1" value="641.3384951964575" />
-      <entry key="W1" value="767.1689740994228" />
+      <entry key="MS100" value="0.9201878263714611" />
+      <entry key="MS500" value="1.0280653776938777" />
+      <entry key="S2" value="1.4553330515126717" />
+      <entry key="S5" value="1.7550582934042254" />
+      <entry key="S10" value="2.1248112992154553" />
+      <entry key="S30" value="3.6468486841034724" />
+      <entry key="S60" value="4.977529879925273" />
+      <entry key="M2" value="6.985028214215274" />
+      <entry key="M5" value="12.87255951205892" />
+      <entry key="M10" value="20.638389450849512" />
+      <entry key="M15" value="28.03164316261264" />
+      <entry key="M30" value="49.08855637521872" />
+      <entry key="H1" value="82.6252391636964" />
+      <entry key="H2" value="150.37341454142077" />
+      <entry key="H4" value="288.2809377159614" />
+      <entry key="D1" value="706.0546236000213" />
+      <entry key="W1" value="854.4739592097811" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{

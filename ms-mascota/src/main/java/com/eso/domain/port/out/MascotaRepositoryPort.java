@@ -9,7 +9,6 @@ public interface MascotaRepositoryPort {
     Mascota save(Mascota mascota);
     void deleteById(Long id);
 
-    Mascota findByNombre(String nombre);
     List<Mascota> findByDuenioId(Long duenioId);
     boolean existsByNombreAndDuenioId(String nombre, Long duenioId);
 }

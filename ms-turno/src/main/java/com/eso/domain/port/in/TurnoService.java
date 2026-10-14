@@ -1,14 +1,14 @@
 package com.eso.domain.port.in;
 
-import com.eso.adapter.in.web.dto.TurnoRequest;
-import com.eso.adapter.in.web.dto.TurnoResponse;
+import com.eso.domain.model.Turno;
+
 import java.util.List;
 
 public interface TurnoService {
-    List<TurnoResponse> findAll();
-    TurnoResponse findById(Long id);
-    List<TurnoResponse> findByVeterinarioId(Long veterinarioId);
-    List<TurnoResponse> findByMascotaId(Long mascotaId);
-    TurnoResponse save(TurnoRequest request);
-    TurnoResponse cancelar(Long id);
+    List<Turno> findAll();
+    Turno findById(Long id);
+    List<Turno> findByVeterinarioId(Long veterinarioId);
+    List<Turno> findByMascotaId(Long mascotaId);
+    Turno save(Turno turno);
+    Turno cancelar(Long id);
 }

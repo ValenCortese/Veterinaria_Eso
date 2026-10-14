@@ -68,15 +68,6 @@ public class MascotaServiceImpl implements MascotaService {
     }
 
     @Override
-    public MascotaResponse findByNombre(String nombre) {
-        Mascota mascota = mascotaRepository.findByNombre(nombre);
-        if (mascota == null) {
-            throw new MascotaNotFoundException("No se encontró mascota con el nombre: " + nombre);
-        }
-        return MascotaMapper.toResponse(mascota);
-    }
-
-    @Override
     public List<MascotaResponse> findByDuenioId(Long duenioId) {
         return mascotaRepository.findByDuenioId(duenioId).stream()
                 .map(MascotaMapper::toResponse)
@@ -86,7 +77,7 @@ public class MascotaServiceImpl implements MascotaService {
     private Mascota obtenerEntidadMascota(Long id) {
         Mascota mascota = mascotaRepository.findById(id);
         if (mascota == null) {
-            throw new MascotaNotFoundException("No se encontró mascota con ID: " + id);
+            throw new MascotaNotFoundException(id);
         }
         return mascota;
     }

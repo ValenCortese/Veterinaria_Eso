@@ -12,6 +12,5 @@ public interface MascotaService {
     MascotaResponse save(MascotaRequest mascotaRequest);
     MascotaResponse update(Long id, MascotaRequest mascotaRequest);
     void deleteMascota(Long id);
-    MascotaResponse findByNombre(String nombre);
     List<MascotaResponse> findByDuenioId(Long duenioId);
 }

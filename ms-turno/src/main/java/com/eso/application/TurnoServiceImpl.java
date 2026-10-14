@@ -1,14 +1,12 @@
 package com.eso.application;
 
-import com.eso.adapter.in.web.dto.TurnoMapper;
-import com.eso.adapter.in.web.dto.TurnoRequest;
-import com.eso.adapter.in.web.dto.TurnoResponse;
-import com.eso.domain.exception.ResourceNotFoundException;
-import com.eso.domain.exception.TurnoSuperpuestoException;
+import com.eso.domain.exception.TurnoNotFoundException;
 import com.eso.domain.model.EstadoTurno;
 import com.eso.domain.model.Turno;
 import com.eso.domain.port.in.TurnoService;
+import com.eso.domain.port.out.MascotaServicePort;
 import com.eso.domain.port.out.TurnoRepositoryPort;
+import com.eso.domain.port.out.VeterinarioServicePort;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,44 +18,52 @@ import java.util.List;
 public class TurnoServiceImpl implements TurnoService {
 
     private final TurnoRepositoryPort turnoRepository;
+    private final MascotaServicePort mascotaService;
+    private final VeterinarioServicePort veterinarioService;
 
     @Override
-    public List<TurnoResponse> findAll() {
-        return turnoRepository.findAll().stream().map(TurnoMapper::toResponse).toList();
+    public List<Turno> findAll() {
+        return turnoRepository.findAll();
     }
 
     @Override
-    public TurnoResponse findById(Long id) {
-        return TurnoMapper.toResponse(obtenerEntidad(id));
-    }
-
-    @Override
-    public List<TurnoResponse> findByVeterinarioId(Long veterinarioId) {
-        return turnoRepository.findByVeterinarioId(veterinarioId).stream().map(TurnoMapper::toResponse).toList();
-    }
-
-    @Override
-    public List<TurnoResponse> findByMascotaId(Long mascotaId) {
-        return turnoRepository.findByMascotaId(mascotaId).stream().map(TurnoMapper::toResponse).toList();
-    }
-
-    @Override
-    @Transactional
-    public TurnoResponse save(TurnoRequest request) {
-        if (turnoRepository.existsByVeterinarioIdAndFechaHora(request.getVeterinarioId(), request.getFechaHora())) {
-            throw new TurnoSuperpuestoException("El veterinario ya tiene un turno asignado en esa fecha y hora.");
+    public Turno findById(Long id) {
+        Turno turno = turnoRepository.findById(id);
+        if (turno == null) {
+            throw new TurnoNotFoundException("Turno no encontrado");
         }
+        return turno;
+    }
 
-        Turno turnoGuardado = turnoRepository.save(TurnoMapper.toEntity(request));
-        return TurnoMapper.toResponse(turnoGuardado);
+    @Override
+    public List<Turno> findByVeterinarioId(Long veterinarioId) {
+        return turnoRepository.findByVeterinarioId(veterinarioId);
+    }
+
+    @Override
+    public List<Turno> findByMascotaId(Long mascotaId) {
+        return turnoRepository.findByMascotaId(mascotaId);
     }
 
     @Override
     @Transactional
-    public TurnoResponse cancelar(Long id) {
+    public Turno save(Turno turno) {
+        if (!mascotaService.existsById(turno.getMascotaId())) {
+            throw new MascotaNotFoundException(turno.getMascotaId());
+        }
+        if (!veterinarioService.existsById(turno.getVeterinarioId())) {
+            throw new VeterinarioNotFoundException(turno.getVeterinarioId());
+        }
+        turno.setEstado(EstadoTurno.PENDIENTE);
+        return turnoRepository.save(turno);
+    }
+
+    @Override
+    @Transactional
+    public Turno cancelar(Long id) {
         Turno turno = obtenerEntidad(id);
         turno.setEstado(EstadoTurno.CANCELADO);
-        return TurnoMapper.toResponse(turnoRepository.save(turno));
+        return turnoRepository.save(turno);
     }
 
     private Turno obtenerEntidad(Long id) {

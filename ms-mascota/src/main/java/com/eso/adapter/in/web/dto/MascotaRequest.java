@@ -19,10 +19,8 @@ public class MascotaRequest {
     @NotBlank(message = "La especie es obligatoria")
     private String especie;
 
-    @NotBlank(message = "La raza es obligatoria")
     private String raza;
 
-    @NotNull(message = "La fecha de nacimiento no puede ser nula")
     private LocalDate fechaNacimiento;
 
     @NotNull(message = "El ID del dueño es obligatorio")
