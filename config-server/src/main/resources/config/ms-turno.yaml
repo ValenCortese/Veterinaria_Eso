@@ -1,31 +1,81 @@
+
 server:
   port: 8084
 
 spring:
+  application:
+    name: ms-turno
   datasource:
     url: jdbc:mysql://localhost:3306/turno_db
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-  info:
-    app:
-      name: ms-turno
-      description: Microservicio destinado a la gestion de turnos - Eso
-      version: 1.0.0
-
   cloud:
-    openfeing:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 3000
+            read-timeout: 5000
+            compression:
+              request:
+                enabled: true
+              response:
+                enabled: true
+
+eureka:
   client:
-    config:
-      default:
-        connect-timeout: 3000
-        read-timeout: 5000
-        compression:
-          request:
-            enabled: true
-            response:
-              enabled: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+resilence4j:
+  circuitbreaker:
+    instances:
+      ms-mascota:
+        sliding-windows-size: 10
+        minimun-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+        register-health-indicator: true
+        slidingWindowType: COUNT_BASED
+      ms-veterinario:
+        sliding-windows-size: 10
+        minimun-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+        register-health-indicator: true
+        slidingWindowType: COUNT_BASED
+      retry:
+        instance:
+          ms-mascota:
+            max-attempts: 3
+            wait-duration: 500ms
+            enableExponentialBackoff: true
+            exponentialBackoffMultiplier: 2
+          ms-veterinario:
+            max-attempts: 3
+            wait-duration: 500ms
+            enableExponentialBackoff: true
+            exponentialBackoffMultiplier: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,circuitbreakers,circuitbreakerevents
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+
 logging:
   level:
-    com.patitas.turno.adapter.out.feign: DEBUG
+    com.eso.adapter.out.feign: DEBUG
+    org.springframework.cloud.openfeign: DEBUG

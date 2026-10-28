@@ -10,7 +10,7 @@ public final class DuenioMapper {
         duenio.setNombre(duenioRequest.getNombre());
         duenio.setApellido(duenioRequest.getApellido());
         duenio.setCedula(duenioRequest.getCedula());
-        duenio.setTelefono(duenio.getTelefono());
+        duenio.setTelefono(duenioRequest.getTelefono());
         duenio.setEmail(duenioRequest.getEmail());
         return duenio;
     }

@@ -18,6 +18,7 @@
         <module>ms-veterinario</module>
         <module>ms-turno</module>
         <module>config-server</module>
+        <module>ms-gateway</module>
     </modules>
 
     <parent>

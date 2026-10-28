@@ -62,7 +62,6 @@ public class MascotaController {
     })
     @PostMapping
     public ResponseEntity<MascotaResponse> createMascota(@Valid @RequestBody MascotaRequest mascotaRequest) {
-        // Al enviar mascotaRequest a save(), el servicio ya podrá extraer el duenioId usando mascotaRequest.getDuenioId()
         return ResponseEntity.status(HttpStatus.CREATED).body(mascotaService.save(mascotaRequest));
     }
 

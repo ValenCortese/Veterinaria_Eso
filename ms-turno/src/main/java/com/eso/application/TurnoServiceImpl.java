@@ -1,6 +1,8 @@
 package com.eso.application;
 
+import com.eso.domain.exception.MascotaNotFoundException;
 import com.eso.domain.exception.TurnoNotFoundException;
+import com.eso.domain.exception.VeterinarioNotFoundException;
 import com.eso.domain.model.EstadoTurno;
 import com.eso.domain.model.Turno;
 import com.eso.domain.port.in.TurnoService;
@@ -30,7 +32,7 @@ public class TurnoServiceImpl implements TurnoService {
     public Turno findById(Long id) {
         Turno turno = turnoRepository.findById(id);
         if (turno == null) {
-            throw new TurnoNotFoundException("Turno no encontrado");
+            throw new TurnoNotFoundException(id);
         }
         return turno;
     }
@@ -60,7 +62,7 @@ public class TurnoServiceImpl implements TurnoService {
 
     @Override
     @Transactional
-    public Turno cancelar(Long id) {
+    public Turno cancel(Long id) {
         Turno turno = obtenerEntidad(id);
         turno.setEstado(EstadoTurno.CANCELADO);
         return turnoRepository.save(turno);
@@ -69,7 +71,7 @@ public class TurnoServiceImpl implements TurnoService {
     private Turno obtenerEntidad(Long id) {
         Turno turno = turnoRepository.findById(id);
         if (turno == null) {
-            throw new ResourceNotFoundException("No se encontró el turno con ID: " + id, id);
+            throw new TurnoNotFoundException(id);
         }
         return turno;
     }

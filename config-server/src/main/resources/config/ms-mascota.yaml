@@ -1,3 +1,4 @@
+
 server:
   port: 8082
 
@@ -14,3 +15,10 @@ spring:
       name: ms-mascota
       description: Microservicio destinado a la gestion de mascotas - Eso
       version: 1.0.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true

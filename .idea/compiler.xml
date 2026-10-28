@@ -12,6 +12,7 @@
         <module name="config-server" />
         <module name="ms-turno" />
         <module name="eureka-server" />
+        <module name="ms-gateway" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +21,7 @@
       <module name="config-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
       <module name="ms-duenio" options="-parameters" />
+      <module name="ms-gateway" options="-parameters" />
       <module name="ms-mascota" options="-parameters" />
       <module name="ms-turno" options="-parameters" />
       <module name="ms-veterinario" options="-parameters" />

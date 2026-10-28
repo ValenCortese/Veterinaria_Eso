@@ -10,5 +10,5 @@ public interface TurnoService {
     List<Turno> findByVeterinarioId(Long veterinarioId);
     List<Turno> findByMascotaId(Long mascotaId);
     Turno save(Turno turno);
-    Turno cancelar(Long id);
+    Turno cancel(Long id);
 }

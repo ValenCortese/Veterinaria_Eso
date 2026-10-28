@@ -4,5 +4,5 @@ server:
 spring:
   application:
     name: ms-duenio
-    config:
+  config:
       import: "optional:configserver:http://localhost:8888"

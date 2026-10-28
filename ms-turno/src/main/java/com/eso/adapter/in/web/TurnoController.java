@@ -1,7 +1,9 @@
 package com.eso.adapter.in.web;
 
+import com.eso.adapter.in.web.dto.TurnoMapper;
 import com.eso.adapter.in.web.dto.TurnoRequest;
 import com.eso.adapter.in.web.dto.TurnoResponse;
+import com.eso.domain.model.Turno;
 import com.eso.domain.port.in.TurnoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -27,7 +29,8 @@ public class TurnoController {
     @Operation(summary = "Lista todos los turnos")
     @GetMapping
     public ResponseEntity<List<TurnoResponse>> getAllTurnos() {
-        return ResponseEntity.ok(turnoService.findAll());
+        List<TurnoResponse> turnos = turnoService.findAll().stream().map(TurnoMapper::toResponse).toList();
+        return ResponseEntity.ok(turnos);
     }
 
     @Operation(summary = "Busca un turno por ID")
@@ -37,19 +40,26 @@ public class TurnoController {
     })
     @GetMapping("/{id}")
     public ResponseEntity<TurnoResponse> getTurnoById(@PathVariable Long id) {
-        return ResponseEntity.ok(turnoService.findById(id));
+        Turno turno = turnoService.findById(id);
+        return ResponseEntity.ok(TurnoMapper.toResponse(turno));
     }
 
     @Operation(summary = "Busca turnos por ID del veterinario")
     @GetMapping("/veterinario/{veterinarioId}")
     public ResponseEntity<List<TurnoResponse>> getTurnosByVeterinario(@PathVariable Long veterinarioId) {
-        return ResponseEntity.ok(turnoService.findByVeterinarioId(veterinarioId));
+        List<TurnoResponse> responses = turnoService.findByVeterinarioId(veterinarioId).stream()
+                .map(TurnoMapper::toResponse)
+                .toList();
+        return ResponseEntity.ok(responses);
     }
 
     @Operation(summary = "Busca turnos por ID de la mascota")
     @GetMapping("/mascota/{mascotaId}")
     public ResponseEntity<List<TurnoResponse>> getTurnosByMascota(@PathVariable Long mascotaId) {
-        return ResponseEntity.ok(turnoService.findByMascotaId(mascotaId));
+        List<TurnoResponse> responses = turnoService.findByMascotaId(mascotaId).stream()
+                .map(TurnoMapper::toResponse)
+                .toList();
+        return ResponseEntity.ok(responses);
     }
 
     @Operation(summary = "Registra un nuevo turno")
@@ -60,7 +70,8 @@ public class TurnoController {
     })
     @PostMapping
     public ResponseEntity<TurnoResponse> createTurno(@Valid @RequestBody TurnoRequest turnoRequest) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(turnoService.save(turnoRequest));
+        Turno turno = turnoService.save(TurnoMapper.toEntity(turnoRequest));
+        return ResponseEntity.status(HttpStatus.CREATED).body(TurnoMapper.toResponse(turno));
     }
 
     @Operation(summary = "Cancela un turno existente")
@@ -69,8 +80,9 @@ public class TurnoController {
             @ApiResponse(responseCode = "404", description = "Turno no encontrado")
     })
     @PatchMapping("/{id}/cancelar")
-    public ResponseEntity<TurnoResponse> cancelarTurno(
+    public ResponseEntity<TurnoResponse> cancelTurno(
             @Parameter(description = "ID del turno a cancelar") @PathVariable Long id) {
-        return ResponseEntity.ok(turnoService.cancelar(id));
+        Turno turno = turnoService.cancel(id);
+        return ResponseEntity.ok(TurnoMapper.toResponse(turno));
     }
 }

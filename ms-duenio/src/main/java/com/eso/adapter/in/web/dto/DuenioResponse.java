@@ -12,6 +12,6 @@ public class DuenioResponse {
     private String nombre;
     private String apellido;
     private String cedula;
-    private Integer direccion;
+    private Integer telefono;
     private String email;
 }

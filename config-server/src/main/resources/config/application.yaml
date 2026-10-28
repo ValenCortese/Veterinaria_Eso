@@ -5,18 +5,17 @@ eureka:
   instance:
     prefer-ip-address: true
 
-
 spring:
   jpa:
     hibernate:
       ddl-auto: update
-      show-sql: true
+    show-sql: true
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info,metrics,env,beans,mappings
-    endpoint:
-      health:
-        show-details: always
+  endpoint:
+    health:
+      show-details: always

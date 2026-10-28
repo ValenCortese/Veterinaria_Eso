@@ -1,0 +1,36 @@
+
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ms-turno
+  datasource:
+    url: jdbc:mysql://localhost:3306/turno_db
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connect-timeout: 3000
+            read-timeout: 5000
+            compression:
+              request:
+                enabled: true
+              response:
+                enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    com.eso.adapter.out.feign: DEBUG
+    org.springframework.cloud.openfeign: DEBUG

@@ -1,6 +1,7 @@
 package com.eso.adapter.in.web;
 
 import com.eso.domain.exception.MascotaNotFoundException;
+import com.eso.domain.exception.ServicioNoDisponibleException;
 import com.eso.domain.exception.TurnoNotFoundException;
 import com.eso.domain.exception.VeterinarioNotFoundException;
 import feign.FeignException;
@@ -55,6 +56,13 @@ public class GlobalExceptionHandler {
                                                          HttpServletRequest request) {
         return build(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), request);
     }
+
+    @ExceptionHandler(ServicioNoDisponibleException.class)
+    public ResponseEntity<ErrorResponse>  manejarServicioNoDisponible(ServicioNoDisponibleException ex,
+                                                                      HttpServletRequest request) {
+        return build(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage(), request);
+    }
+
 
     private ResponseEntity<ErrorResponse> build(HttpStatus status, String mensaje, HttpServletRequest request) {
         ErrorResponse body = new ErrorResponse(
