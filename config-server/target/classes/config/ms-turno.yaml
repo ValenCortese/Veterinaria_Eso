@@ -30,6 +30,51 @@ eureka:
   instance:
     prefer-ip-address: true
 
+resilence4j:
+  circuitbreaker:
+    instances:
+      ms-mascota:
+        sliding-windows-size: 10
+        minimun-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+        register-health-indicator: true
+        slidingWindowType: COUNT_BASED
+      ms-veterinario:
+        sliding-windows-size: 10
+        minimun-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+        register-health-indicator: true
+        slidingWindowType: COUNT_BASED
+      retry:
+        instance:
+          ms-mascota:
+            max-attempts: 3
+            wait-duration: 500ms
+            enableExponentialBackoff: true
+            exponentialBackoffMultiplier: 2
+          ms-veterinario:
+            max-attempts: 3
+            wait-duration: 500ms
+            enableExponentialBackoff: true
+            exponentialBackoffMultiplier: 2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,circuitbreakers,circuitbreakerevents
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+
+
 logging:
   level:
     com.eso.adapter.out.feign: DEBUG

@@ -29,17 +29,21 @@ spring:
               uri: lb://ms-veterinario
               predicates:
                 - Path=/api/veterinarios/**
+            - id: ms-auth
+              uri: lb://ms-auth
+              predicates:
+                - Path=/auth/**
             - id: ms-turno
               uri: lb://ms-turno
               predicates:
                 - Path=/api/turnos/**
               filters:
                 - name: RequestRateLimiter
-              args:
-                redis-rate-limiter.replenishRate: 10
-                redis-rate-limiter.burstCapacity: 20
-                redis-rate-limiter.requestedTokens: 1
-                key-resolver: "#{@ipKeyResolver}"
+                  args:
+                    redis-rate-limiter.replenishRate: 10
+                    redis-rate-limiter.burstCapacity: 20
+                    redis-rate-limiter.requestedTokens: 1
+                    key-resolver: "#{@ipKeyResolver}"
           globalcors:
             cors-configurations:
               '[/**]':
@@ -68,3 +72,6 @@ management:
   endpoint:
     gateway:
       access: read-only
+
+jwt:
+  secret: "P4t1t4sF3l1c3sAuthS3cr3tK3y2026JWT"
