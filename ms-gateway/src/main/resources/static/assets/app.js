@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  const TOKEN_KEY = "veterinaria_token";
+  const token = localStorage.getItem(TOKEN_KEY);
+  if (!token) {
+    window.location.replace("/auth.html");
+    return;
+  }
+
   const configs = {
     duenios: {
       label: "dueño",
@@ -95,10 +102,21 @@
     `<span class="badge text-bg-${value === "CANCELADO" ? "secondary" : value === "CONFIRMADO" ? "success" : "warning"}">${escapeHtml(value || "-")}</span>`;
 
   async function request(url, options) {
+    const requestOptions = options || {};
+    const requestHeaders = {
+      "Content-Type": "application/json",
+      Authorization: ["Bearer", localStorage.getItem(TOKEN_KEY)].join(" "),
+      ...(requestOptions.headers || {}),
+    };
     const response = await fetch(url, {
-      headers: { "Content-Type": "application/json" },
-      ...options,
+      ...requestOptions,
+      headers: requestHeaders,
     });
+    if (response.status === 401) {
+      localStorage.removeItem(TOKEN_KEY);
+      window.location.replace("/auth.html");
+      throw new Error("La sesión expiró. Inicia sesión nuevamente.");
+    }
     if (!response.ok) {
       let message = `Error ${response.status}`;
       try {
@@ -136,6 +154,10 @@
       .querySelector("#crudForm")
       .addEventListener("submit", async (event) => {
         event.preventDefault();
+        const submitButton = event.target.querySelector("button[type='submit']");
+        if (submitButton.disabled) return;
+        submitButton.disabled = true;
+        submitButton.textContent = "Guardando...";
         const payload = Object.fromEntries(new FormData(event.target));
         if (payload.telefono) payload.telefono = Number(payload.telefono);
         ["duenioId", "mascotaId", "veterinarioId"].forEach((key) => {
@@ -151,6 +173,8 @@
           load(config);
         } catch (error) {
           showAlert(error.message, "danger");
+          submitButton.disabled = false;
+          submitButton.textContent = "Guardar";
         }
       });
   }
@@ -230,10 +254,17 @@
   async function init() {
     const navbar = document.querySelector("#navbar");
     if (navbar) {
-      const navbarResponse = await fetch("/navbar.html");
+      const navbarResponse = await fetch("/navbar.html?v=3");
       if (!navbarResponse.ok)
         throw new Error("No se pudo cargar la navegación.");
       navbar.innerHTML = await navbarResponse.text();
+      const logout = document.querySelector("[data-action='logout']");
+      if (logout) {
+        logout.addEventListener("click", () => {
+          localStorage.removeItem(TOKEN_KEY);
+          window.location.replace("/auth.html");
+        });
+      }
       const bootstrapScript = document.createElement("script");
       bootstrapScript.src =
         "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";

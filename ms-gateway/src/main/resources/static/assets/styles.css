@@ -1,6 +1,15 @@
 body {
   background: #f6f8fb;
 }
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+.auth-card {
+  max-width: 440px;
+  width: 100%;
+}
 .card {
   border: 0;
   box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
