@@ -1,180 +1,153 @@
-## 1. Requisitos
+# Cómo levantar el proyecto
 
-Instalá y verificá:
+## Requisitos
 
-- Java JDK 21
-- Maven, o usá los Maven Wrapper incluidos
-- MySQL Server
-- MySQL Workbench, opcional
+- Java JDK 21.
+- Maven instalado y disponible como `mvn` (no hay wrapper Maven en la raíz).
+- MySQL Server en `localhost:3306`.
+- Redis en `localhost:6379` para el rate limiter del Gateway.
 
-Verificá Java:
+Comprobar Java:
 
 ```powershell
 java -version
 ```
 
-Debe mostrar Java 21.
-
-Si aparece el error de `JAVA_HOME`, configurá la variable:
+Debe ser Java 21. Si hace falta, configurar `JAVA_HOME`:
 
 ```powershell
 $env:JAVA_HOME = "C:\Program Files\Java\jdk-21"
 $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 ```
 
-La ruta puede cambiar según dónde instalaste Java.
+## Preparar MySQL
 
-## 2. Preparar MySQL
-
-El proyecto utiliza estas bases de datos:
+Crear las cinco bases usadas por los servicios:
 
 ```sql
+CREATE DATABASE auth_db;
 CREATE DATABASE duenio_db;
 CREATE DATABASE mascota_db;
 CREATE DATABASE veterinario_db;
 CREATE DATABASE turno_db;
 ```
 
-La configuración actual espera:
+La configuración de desarrollo espera `root`/`root`. Si las credenciales
+cambian, editar los archivos de `config-server/src/main/resources/config/`.
+Hibernate crea o actualiza las tablas con `ddl-auto: update`.
 
-```text
-Usuario: root
-Contraseña: root
-Host: localhost
-Puerto: 3306
-```
+## Compilar
 
-Si tu usuario o contraseña son diferentes, modificá los archivos dentro de:
-
-```text
-config-server/src/main/resources/config/
-```
-
-## 3. Compilar el proyecto
-
-Desde la raíz:
+Desde la raíz del repositorio:
 
 ```powershell
 cd C:\Users\valen\Desktop\eso
-.\mvnw.cmd clean install -DskipTests
-```
-
-Si Maven está instalado globalmente también podés usar:
-
-```powershell
 mvn clean install -DskipTests
 ```
 
-## 4. Iniciar los servicios
+## Iniciar los servicios
 
-Abrí una terminal por servicio y ejecutalos en este orden.
+Abrir una terminal por proceso y ejecutar los comandos en este orden.
 
-### Terminal 1: Config Server
-
-```powershell
-cd C:\Users\valen\Desktop\eso
-.\mvnw.cmd -pl config-server spring-boot:run
-```
-
-Puerto:
-
-```text
-http://localhost:8888
-```
-
-### Terminal 2: Eureka Server
+### 1. Config Server (puerto 8888)
 
 ```powershell
-cd C:\Users\valen\Desktop\eso
-.\mvnw.cmd -pl eureka-server spring-boot:run
+mvn -pl config-server spring-boot:run
 ```
 
-Puerto:
+Sirve la configuración de `config-server/src/main/resources/config/`.
 
-```text
-http://localhost:8761
-```
-
-Podés consultar el panel en:
-
-```text
-http://localhost:8761
-```
-
-### Terminales 3 a 6: Microservicios
-
-Dueños:
+### 2. Eureka Server (puerto 8761)
 
 ```powershell
-.\mvnw.cmd -pl ms-duenio spring-boot:run
+mvn -pl eureka-server spring-boot:run
 ```
 
-Puerto `8081`.
+Panel: <http://localhost:8761>
 
-Mascotas:
+### 3. Microservicios de negocio y autenticación
 
 ```powershell
-.\mvnw.cmd -pl ms-mascota spring-boot:run
+mvn -pl ms-auth spring-boot:run        # 8085
+mvn -pl ms-duenio spring-boot:run      # 8081
+mvn -pl ms-mascota spring-boot:run     # 8082
+mvn -pl ms-veterinario spring-boot:run # 8083
+mvn -pl ms-turno spring-boot:run      # 8084
 ```
 
-Puerto `8082`.
+Esperar a que cada aplicación aparezca como registrada en Eureka antes de
+probar peticiones.
 
-Veterinarios:
+### 4. Gateway (puerto 8080)
+
+Levantar docker desktop y luego en la terminal ejecutar:
+
+```terminal
+docker run -d --name redis-gateway -p 6379:6379 redis:alpine
+```
 
 ```powershell
-.\mvnw.cmd -pl ms-veterinario spring-boot:run
+mvn -pl ms-gateway spring-boot:run
 ```
 
-Puerto `8083`.
+El Gateway concentra las rutas, valida JWT y aplica el rate limiting de turnos.
 
-Turnos:
+## Frontend
+
+Abrir (la primera pantalla será el acceso si no hay sesión):
+
+- <http://localhost:8080/auth.html>
+- <http://localhost:8080/index.html>
+- <http://localhost:8080/duenio.html>
+- <http://localhost:8080/mascota.html>
+- <http://localhost:8080/veterinario.html>
+- <http://localhost:8080/turno.html>
+
+Al registrarse o iniciar sesión, el frontend guarda el JWT en el navegador y lo
+envía automáticamente en las llamadas protegidas. El botón **Cerrar sesión**
+elimina la sesión.
+
+Las llamadas usan rutas relativas del Gateway:
+
+```text
+/api/duenios
+/api/mascotas
+/api/veterinarios
+/api/turnos
+```
+
+## Crear el primer usuario
+
+`/auth/register` y `/auth/login` son públicos; el resto de rutas exige un token
+JWT. Por ejemplo:
 
 ```powershell
-.\mvnw.cmd -pl ms-turno spring-boot:run
+curl.exe -X POST http://localhost:8080/auth/register `
+  -H "Content-Type: application/json" `
+  -d '{"username":"admin","password":"admin123","rol":"ADMIN"}'
 ```
 
-Puerto `8084`.
-
-### Terminal 7: Gateway
+Después, iniciar sesión en `auth.html` con esas credenciales. Para probar la
+API manualmente, usar el token devuelto:
 
 ```powershell
-.\mvnw.cmd -pl ms-gateway spring-boot:run
+curl.exe http://localhost:8080/api/duenios `
+  -H "Authorization: Bearer <token>"
 ```
 
-Puerto:
+## Notas del frontend
+
+- `auth.html` es la pantalla inicial para login y registro.
+- Las páginas de gestión requieren una sesión válida.
+- El token se guarda en `localStorage` y se envía como
+  `Authorization: Bearer <token>`.
+- **Cerrar sesión** elimina el token y vuelve a `auth.html`.
+- El formulario deshabilita **Guardar** durante la petición para evitar
+  duplicados.
+- Redis debe estar activo para consultar o crear turnos mediante el Gateway.
+
+## Orden resumido
 
 ```text
-http://localhost:8080
-```
-
-## 5. Abrir el frontend
-
-Con todos los servicios funcionando, ingresá en:
-
-```text
-http://localhost:8080/index.html
-```
-
-También podés acceder directamente a:
-
-```text
-http://localhost:8080/duenio.html
-http://localhost:8080/mascota.html
-http://localhost:8080/veterinario.html
-http://localhost:8080/turno.html
-```
-
-El frontend realiza las llamadas a través del gateway:
-
-```text
-http://localhost:8080/api/duenios
-http://localhost:8080/api/mascotas
-http://localhost:8080/api/veterinarios
-http://localhost:8080/api/turnos
-```
-
-El orden importante es:
-
-```text
-MySQL → Config Server → Eureka → Microservicios → Gateway → Frontend
+MySQL + Redis → Config Server → Eureka → ms-auth y microservicios → Gateway → frontend
 ```
