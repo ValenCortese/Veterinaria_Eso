@@ -19,6 +19,7 @@
         <module>ms-turno</module>
         <module>config-server</module>
         <module>ms-gateway</module>
+        <module>ms-auth</module>
     </modules>
 
     <parent>
