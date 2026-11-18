@@ -5,42 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8ce18b9-ee64-4395-85c7-dc2b7bed489f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/ms-auth.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/adapter/in/web/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/adapter/in/web/dto/AuthResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/adapter/in/web/dto/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/adapter/in/web/dto/RegisterRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/adapter/out/persistence/UsuarioJpaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/application/service/AuthService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/application/service/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/domain/exception/CredencialesInvalidasException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/domain/model/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/java/com/eso/infrastructure/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-auth/src/main/resources/application.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-gateway/src/main/java/com/eso/filters/AuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ms-gateway/src/main/java/com/eso/filters/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/domain/exception/TurnoSuperpuestoException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UP.md" beforeDir="false" afterPath="$PROJECT_DIR$/UP.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/src/main/resources/config/ms-gateway.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/resources/config/ms-gateway.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/target/classes/config/ms-gateway.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/config/ms-gateway.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config-server/target/classes/config/ms-turno.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/target/classes/config/ms-turno.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/assets/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/assets/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/assets/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/duenio.html" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/duenio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/mascota.html" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/mascota.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/turno.html" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/turno.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/veterinario.html" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/veterinario.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/ms-gateway/src/main/resources/static/auth.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/in/web/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/MascotaFeignAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/MascotaFeignAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/VeterinarioFeignAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/adapter/out/feign/VeterinarioFeignAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/application/TurnoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/src/main/java/com/eso/application/TurnoServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-turno/target/classes/com/eso/adapter/in/web/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/target/classes/com/eso/adapter/in/web/GlobalExceptionHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-turno/target/classes/com/eso/adapter/out/feign/MascotaFeignAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/target/classes/com/eso/adapter/out/feign/MascotaFeignAdapter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ms-turno/target/classes/com/eso/adapter/out/feign/VeterinarioFeignAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/ms-turno/target/classes/com/eso/adapter/out/feign/VeterinarioFeignAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ms-veterinario/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ms-veterinario/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="155" />
+    <option name="cachedIndexableFilesCount" value="158" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,8 +31,8 @@
         <option value="Interface" />
         <option value="HTML File" />
         <option value="Record" />
-        <option value="Exception" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -83,23 +57,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0196408368997072" />
-      <entry key="MS500" value="1.4752914742954741" />
-      <entry key="S2" value="2.19595586235058" />
-      <entry key="S5" value="2.59943226632895" />
-      <entry key="S10" value="2.7873420505183573" />
-      <entry key="S30" value="3.8311265148348155" />
-      <entry key="S60" value="9.458203293452089" />
-      <entry key="M2" value="26.269514988354977" />
-      <entry key="M5" value="77.43606196660265" />
-      <entry key="M10" value="174.4718947158278" />
-      <entry key="M15" value="264.16218317149844" />
-      <entry key="M30" value="447.94020056167335" />
-      <entry key="H1" value="654.5362329808684" />
-      <entry key="H2" value="916.5356198908298" />
-      <entry key="H4" value="1260.3774059983482" />
-      <entry key="D1" value="2264.9892755934998" />
-      <entry key="W1" value="2720.4824534228364" />
+      <entry key="MS100" value="1.0044603704009656" />
+      <entry key="MS500" value="1.4355784782016614" />
+      <entry key="S2" value="3.128520285470374" />
+      <entry key="S5" value="4.766330857026794" />
+      <entry key="S10" value="5.7136338987218105" />
+      <entry key="S30" value="7.3493395121949385" />
+      <entry key="S60" value="12.95274433065106" />
+      <entry key="M2" value="29.621816594915266" />
+      <entry key="M5" value="80.69440799836373" />
+      <entry key="M10" value="177.64323625333634" />
+      <entry key="M15" value="267.3275092956873" />
+      <entry key="M30" value="451.233598871554" />
+      <entry key="H1" value="658.0203235846667" />
+      <entry key="H2" value="920.1745744180346" />
+      <entry key="H4" value="1264.1292451906222" />
+      <entry key="D1" value="2268.9149813475688" />
+      <entry key="W1" value="2724.469706800016" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -107,37 +81,37 @@
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
-      <entry key="S30" value="1.726389242714318E-108" />
-      <entry key="S60" value="3.421827692819816E-54" />
-      <entry key="M2" value="5.319432375766945E-27" />
-      <entry key="M5" value="1.1428833002295455E-10" />
-      <entry key="M10" value="3.2258279301272155E-5" />
-      <entry key="M15" value="0.002170934505921574" />
-      <entry key="M30" value="0.16609297874793283" />
-      <entry key="H1" value="1.8874696353618456" />
-      <entry key="H2" value="8.395201875038666" />
-      <entry key="H4" value="24.515240564879516" />
-      <entry key="D1" value="122.12843686326606" />
-      <entry key="W1" value="180.2510708677804" />
+      <entry key="S30" value="1.5708634533356877E-108" />
+      <entry key="S60" value="3.2640589527262376E-54" />
+      <entry key="M2" value="5.195354910248786E-27" />
+      <entry key="M5" value="1.1321444928144489E-10" />
+      <entry key="M10" value="3.210636832077776E-5" />
+      <entry key="M15" value="0.0021641135557552054" />
+      <entry key="M30" value="0.16583184622308156" />
+      <entry key="H1" value="1.8859853053352615" />
+      <entry key="H2" value="8.391900179246084" />
+      <entry key="H4" value="24.510419368934734" />
+      <entry key="D1" value="122.12443354828905" />
+      <entry key="W1" value="180.25022677754262" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9707112509174574" />
-      <entry key="MS500" value="1.438703067585464" />
-      <entry key="S2" value="1.9384874050257288" />
-      <entry key="S5" value="2.3539956846912857" />
-      <entry key="S10" value="2.6217939085597233" />
-      <entry key="S30" value="3.763406066318876" />
-      <entry key="S60" value="9.422166949103314" />
-      <entry key="M2" value="26.250507531540226" />
-      <entry key="M5" value="77.42774702513825" />
-      <entry key="M10" value="174.46715773102383" />
-      <entry key="M15" value="264.16076447041485" />
-      <entry key="M30" value="448.1036296314222" />
-      <entry key="H1" value="656.4203204279696" />
-      <entry key="H2" value="924.9259178742657" />
-      <entry key="H4" value="1284.8858880761777" />
-      <entry key="D1" value="2387.111560082078" />
-      <entry key="W1" value="2900.7322168008773" />
+      <entry key="MS100" value="0.7139281124415002" />
+      <entry key="MS500" value="1.3084724526483864" />
+      <entry key="S2" value="2.959239974402295" />
+      <entry key="S5" value="4.555878046116979" />
+      <entry key="S10" value="5.545783907285366" />
+      <entry key="S30" value="7.271280632994508" />
+      <entry key="S60" value="12.909864306053427" />
+      <entry key="M2" value="29.598926230353413" />
+      <entry key="M5" value="80.68442270327276" />
+      <entry key="M10" value="177.63764431314843" />
+      <entry key="M15" value="267.32550953688843" />
+      <entry key="M30" value="451.396477902278" />
+      <entry key="H1" value="659.9027827298108" />
+      <entry key="H2" value="928.5614992973321" />
+      <entry key="H4" value="1288.6328707278785" />
+      <entry key="D1" value="2391.033256609817" />
+      <entry key="W1" value="2904.7186252206343" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -152,64 +126,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Maven.eso [spring-boot:run,-pl,ms-duenio].executor": "Run",
-    "Maven.eso [spring-boot:run,-pl,ms-mascota].executor": "Run",
-    "Maven.eso [spring-boot:run,-pl,ms-veterinario].executor": "Run",
-    "Maven.eso [spring-boot:run].executor": "Run",
-    "Maven.ms-duenio [validate].executor": "Run",
-    "Maven.ms-gateway [clean].executor": "Run",
-    "Maven.ms-gateway [compile].executor": "Run",
-    "Maven.ms-mascota [package].executor": "Run",
-    "Maven.ms-mascota [validate].executor": "Run",
-    "Maven.ms-veterinario [clean].executor": "Run",
-    "Maven.ms-veterinario [compile].executor": "Run",
-    "Maven.ms-veterinario [validate].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ConfigServerApplication.executor": "Run",
-    "Spring Boot.EurekaServerApplication.executor": "Run",
-    "Spring Boot.MsAuthApplication.executor": "Run",
-    "Spring Boot.MsDuenioApplication.executor": "Run",
-    "Spring Boot.MsDuenoApplication.executor": "Run",
-    "Spring Boot.MsGatewayApplication.executor": "Run",
-    "Spring Boot.MsMascotaApplication.executor": "Run",
-    "Spring Boot.MsTurnoApplication.executor": "Run",
-    "Spring Boot.MsVeterinarioApplication.executor": "Run",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "microservicios",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/valen/Desktop/eso/ms-turno/src/main/java/com/eso/domain/exception",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.jshint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.jshint": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/valen/Desktop/eso/ms-auth/src/main/java/com/eso/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "spring",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Maven.eso [spring-boot:run,-pl,ms-duenio].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eso [spring-boot:run,-pl,ms-mascota].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eso [spring-boot:run,-pl,ms-veterinario].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.eso [spring-boot:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-duenio [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-gateway [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-gateway [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-mascota [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-mascota [validate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-veterinario [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-veterinario [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ms-veterinario [validate].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ConfigServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsAuthApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsDuenioApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsDuenoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsGatewayApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsMascotaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsTurnoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MsVeterinarioApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;microservicios&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/valen/Desktop/eso/ms-turno/src/main/java/com/eso/domain/exception&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/valen/Desktop/eso/ms-auth/src/main/java/com/eso/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;spring&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\valen\Desktop\eso\ms-turno\src\main\java\com\eso\domain\exception" />

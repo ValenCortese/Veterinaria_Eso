@@ -2,6 +2,7 @@ package com.eso.application;
 
 import com.eso.domain.exception.MascotaNotFoundException;
 import com.eso.domain.exception.TurnoNotFoundException;
+import com.eso.domain.exception.TurnoSuperpuestoException;
 import com.eso.domain.exception.VeterinarioNotFoundException;
 import com.eso.domain.model.EstadoTurno;
 import com.eso.domain.model.Turno;
@@ -55,6 +56,9 @@ public class TurnoServiceImpl implements TurnoService {
         }
         if (!veterinarioService.existsById(turno.getVeterinarioId())) {
             throw new VeterinarioNotFoundException(turno.getVeterinarioId());
+        }
+        if (turnoRepository.existsByVeterinarioIdAndFechaHora(turno.getVeterinarioId(), turno.getFechaHora())) {
+            throw new TurnoSuperpuestoException("El veterinario ya tiene un turno asignado en esa fecha y hora");
         }
         turno.setEstado(EstadoTurno.PENDIENTE);
         return turnoRepository.save(turno);

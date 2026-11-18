@@ -11,10 +11,11 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class VeterinarioFeignAdapter implements VeterinarioServicePort {
+
     private final VeterinarioFeignClient veterinarioFeignClient;
 
-    @CircuitBreaker(name = "ms-veterinario", fallbackMethod = "fallbackVeterinario")
     @Retry(name = "ms-veterinario", fallbackMethod = "fallbackVeterinario")
+    @CircuitBreaker(name = "ms-veterinario")
     @Override
     public boolean existsById(Long id) {
         try {
@@ -25,7 +26,7 @@ public class VeterinarioFeignAdapter implements VeterinarioServicePort {
         }
     }
 
-    private VeterinarioResponse fallbackVeterinario(Long veterinarioId, Throwable throwable) {
-        throw new ServicioNoDisponibleException("El servicio de veterinarios no esta disponible: " + throwable.getMessage());
+    private boolean fallbackVeterinario(Long veterinarioId, Throwable throwable) {
+        throw new ServicioNoDisponibleException("El servicio de veterinarios no está disponible: " + throwable.getMessage());
     }
 }

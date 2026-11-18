@@ -3,6 +3,7 @@ package com.eso.adapter.in.web;
 import com.eso.domain.exception.MascotaNotFoundException;
 import com.eso.domain.exception.ServicioNoDisponibleException;
 import com.eso.domain.exception.TurnoNotFoundException;
+import com.eso.domain.exception.TurnoSuperpuestoException;
 import com.eso.domain.exception.VeterinarioNotFoundException;
 import feign.FeignException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,6 +36,12 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.NOT_FOUND, ex.getMessage(), request);
     }
 
+    @ExceptionHandler(TurnoSuperpuestoException.class)
+    public ResponseEntity<ErrorResponse> manejarTurnoSuperpuesto(TurnoSuperpuestoException ex,
+                                                                 HttpServletRequest request) {
+        return build(HttpStatus.CONFLICT, ex.getMessage(), request);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> manejarValidacion(MethodArgumentNotValidException ex,
                                                            HttpServletRequest request) {
@@ -51,18 +58,17 @@ public class GlobalExceptionHandler {
                 "Servicio remoto no disponible: " + ex.getMessage(), request);
     }
 
+    @ExceptionHandler(ServicioNoDisponibleException.class)
+    public ResponseEntity<ErrorResponse> manejarServicioNoDisponible(ServicioNoDisponibleException ex,
+                                                                     HttpServletRequest request) {
+        return build(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage(), request);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> manejarGenerico(Exception ex,
                                                          HttpServletRequest request) {
         return build(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), request);
     }
-
-    @ExceptionHandler(ServicioNoDisponibleException.class)
-    public ResponseEntity<ErrorResponse>  manejarServicioNoDisponible(ServicioNoDisponibleException ex,
-                                                                      HttpServletRequest request) {
-        return build(HttpStatus.SERVICE_UNAVAILABLE, ex.getMessage(), request);
-    }
-
 
     private ResponseEntity<ErrorResponse> build(HttpStatus status, String mensaje, HttpServletRequest request) {
         ErrorResponse body = new ErrorResponse(
